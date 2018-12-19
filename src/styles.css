@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.fc .fc-toolbar>*>:first-child {
+    margin-left: 0;
+    font-size: 12px !important;
+}
+
+.fc .fc-toolbar>*>* {
+    float: left;
+    margin-left: .75em;
+    font-size: 12px;
+}

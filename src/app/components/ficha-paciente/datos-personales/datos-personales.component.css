@@ -1,0 +1,12 @@
+.img-avatar{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-top: -20px;
+    margin-left:-12px;
+}
+
+.title-avatar{
+    margin-left:35px;
+}

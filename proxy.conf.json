@@ -1,0 +1,7 @@
+{
+    "/API_peterswuan/index.php/*": {
+        "target": "http://localhost:8888",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

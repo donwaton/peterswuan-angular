@@ -1,0 +1,13 @@
+<mat-accordion *ngIf="paciente" >
+  <mat-expansion-panel class="mt-2">
+    <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="80px">
+      <mat-panel-title>
+        <img class="img-avatar" src="https://www.healthyfood.co.nz/wp-content/uploads/2017/01/Should-your-child-be-dairy-free-iStock_64414757.jpg" alt="niño">
+      </mat-panel-title>
+      <mat-panel-description class="title-avatar">
+          {{ paciente.paciente_nombre }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      {{ paciente.paciente_mail }} <br><br>
+  </mat-expansion-panel>
+</mat-accordion>

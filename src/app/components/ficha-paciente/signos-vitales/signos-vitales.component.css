@@ -1,0 +1,16 @@
+.farma-icon {
+    height: 22px;
+    margin-top: -7px;
+}
+
+.signos-vitales{
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
+.signos-vitales b{
+    font-size: 17px;
+}
+.signos-vitales span{
+    font-size: 11px;
+}
