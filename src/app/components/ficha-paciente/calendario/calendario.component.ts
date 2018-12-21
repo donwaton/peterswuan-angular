@@ -15,6 +15,14 @@ export class CalendarioComponent implements OnInit {
 
   ngOnInit() {
     this.calendarOptions = {
+      views: {
+        agenda: {
+          // options apply to agendaWeek and agendaDay views
+        },
+        day: {
+          titleFormat: 'DD MMM YYYY'
+        }
+      },
       locale: 'es',
       editable: false,
       eventLimit: false,
@@ -25,7 +33,7 @@ export class CalendarioComponent implements OnInit {
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'agendaDay,listMonth'
+        right: 'agendaDay,listMonth',
       },
       buttonText:
       {

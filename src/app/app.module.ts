@@ -2,8 +2,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,6 +33,15 @@ import { SignosVitalesComponent } from './components/ficha-paciente/signos-vital
 import { AlertasComponent } from './components/ficha-paciente/alertas/alertas.component';
 import { ActividadesComponent } from './components/ficha-paciente/actividades/actividades.component';
 import { CalendarioComponent } from './components/ficha-paciente/calendario/calendario.component';
+import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
+
+const routes: Routes = [
+  { path: 'ficha-paciente/:id', component: FichaPacienteComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'lista-pacientes', component: ListaPacientesComponent },
+  { path: '**', component: HomeComponent },
+  { path: '', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
@@ -43,10 +54,17 @@ import { CalendarioComponent } from './components/ficha-paciente/calendario/cale
     SignosVitalesComponent,
     AlertasComponent,
     ActividadesComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    ModalSignosVitalesComponent
+  ],
+  entryComponents: [
+    ModalSignosVitalesComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     FullCalendarModule,
     MatToolbarModule,
     MatCardModule,
@@ -60,17 +78,9 @@ import { CalendarioComponent } from './components/ficha-paciente/calendario/cale
     MatButtonModule,
     MatMenuModule,
     MatTooltipModule,
-    ReactiveFormsModule,
-    BrowserModule,
+    MatDialogModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'ficha-paciente/:id', component: FichaPacienteComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'lista-pacientes', component: ListaPacientesComponent },
-      { path: '**', component: HomeComponent },
-      { path: '', component: HomeComponent }
-    ])
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
     PacienteService

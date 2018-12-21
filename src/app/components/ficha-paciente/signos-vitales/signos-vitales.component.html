@@ -1,23 +1,26 @@
 <mat-card class="mt-2">
-  <mat-card-subtitle>Signos vitales</mat-card-subtitle>
-  <mat-card-content>
+  <mat-card-subtitle (click)="openDialog()">Signos vitales</mat-card-subtitle>
+  <mat-card-content *ngIf="signosVitales">
     <div class="row">
-      <div class="col-sm-3 signos-vitales">
-        <img src="../../../../assets/farma-icons/temperature.png" alt="FC" class="farma-icon">
-        <b>36</b><span>ºC</span>
+      <div class="col-sm-3 signos-vitales" matTooltip="Temperatura">
+        <img src="../../../../assets/farma-icons/temperature.png" alt="temp" class="farma-icon">
+        <b>{{ signosVitales.sv_temp }}</b><span> ºC</span>
       </div>
-      <div class="col-sm-3 signos-vitales">
-        <img src="../../../../assets/farma-icons/respiratory.png" alt="FC" class="farma-icon">
-        <b>40</b><span>rpm</span>
+      <div class="col-sm-3 signos-vitales" matTooltip="Frecuencia Respiratoria">
+        <img src="../../../../assets/farma-icons/respiratory.png" alt="FR" class="farma-icon">
+        <b>{{ signosVitales.sv_fr }}</b><span> rpm</span>
       </div>
-      <div class="col-sm-3 signos-vitales">
+      <div class="col-sm-3 signos-vitales" matTooltip="Frecuencia Cardiaca">
         <img src="../../../../assets/farma-icons/heart-rate.png" alt="FC" class="farma-icon">
-        <b>120</b><span>bpm</span>
+        <b>{{ signosVitales.sv_fc }}</b><span> bpm</span>
       </div>
-      <div class="col-sm-3 signos-vitales">
-        <img src="../../../../assets/farma-icons/oxygen-sat.png" alt="FC" class="farma-icon">
-        <b>99</b><span>%</span>
+      <div class="col-sm-3 signos-vitales" matTooltip="Saturación de Óxigeno">
+        <img src="../../../../assets/farma-icons/oxygen-sat.png" alt="SO" class="farma-icon">
+        <b>{{ signosVitales.sv_so }}</b><span> %</span>
       </div>
     </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="!signosVitales">
+    Sin registro de signos vitales
   </mat-card-content>
 </mat-card>

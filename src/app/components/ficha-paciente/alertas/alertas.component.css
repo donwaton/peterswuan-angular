@@ -1,0 +1,10 @@
+.alerta{
+    color : #ffffff;
+    background: #f44336;
+    padding: 5px;
+}
+
+.indicacion{
+    background: #ffc107; 
+    padding: 5px;
+}

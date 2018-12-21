@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PacienteService } from '../../services/paciente.service';
 
 @Component({
   selector: 'app-lista-pacientes',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-pacientes.component.css']
 })
 export class ListaPacientesComponent implements OnInit {
+  listaPacientes: Array<any>;
 
-  constructor() { }
+  constructor(private pacienteService: PacienteService) { }
 
   ngOnInit() {
+    this.pacienteService.getListaPacientes()
+      .subscribe(resp=>{
+        this.listaPacientes = resp.pacientes;
+      });
   }
 
 }

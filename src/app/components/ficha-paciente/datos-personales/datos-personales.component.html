@@ -8,6 +8,11 @@
           {{ paciente.paciente_nombre }}
       </mat-panel-description>
     </mat-expansion-panel-header>
-      {{ paciente.paciente_mail }} <br><br>
+      <p><b>Ficha Nº:</b> {{ paciente.paciente_id }}</p>
+      <p><b>RUT:</b> {{ paciente.paciente_rut }}</p>
+      <p><b>Edad:</b> 8 años y 3 meses</p>
+      <p><b>Sexo:</b> {{ paciente.paciente_sexo }}</p>
+      <p><b>Médico Tratante:</b> {{ paciente.medico_nombre }}</p>
+      <p><b>Diagnóstico:</b> {{ paciente.paciente_diagnostico }}</p>
   </mat-expansion-panel>
 </mat-accordion>
