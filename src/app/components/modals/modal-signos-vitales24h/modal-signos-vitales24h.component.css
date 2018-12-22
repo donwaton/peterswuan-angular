@@ -1,0 +1,17 @@
+table {
+    width: 600px;;
+}
+
+tr.mat-header-row {
+    height: 46px;
+    background: #3f51b5;
+}
+
+th.mat-header-cell {
+    text-align: center;
+    color: #ffffff;
+}
+
+.mat-cell, .mat-footer-cell {
+    text-align: center;
+}

@@ -15,8 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PacienteService {
-  //readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/pacientes';
-  readonly ROOT_URL = '/API_peterswuan/index.php/pacientes';
+  readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/pacientes';
+  //readonly ROOT_URL = '/API_peterswuan/index.php/pacientes';
   
   constructor(private http: HttpClient) { }
 

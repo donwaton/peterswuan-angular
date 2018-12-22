@@ -1,34 +1,35 @@
+<div matDialogTitle>Signos Vitales</div>
 <div class="container">
-  <form>
+  <form [formGroup]="formSignosVitales">
     <mat-form-field class="p100">
       <img matPrefix src="../../../../assets/farma-icons/temperature.png" alt="temp" class="farma-icon">
       <span matPrefix>&nbsp;&nbsp;</span>
-      <input type="number" matInput placeholder="Temperatura">
+      <input type="number" matInput placeholder="Temperatura" formControlName="sv_temp" required>
       <span matSuffix>&nbsp;ºC</span>
     </mat-form-field>
     <br>
     <mat-form-field class="p100">
       <img matPrefix src="../../../../assets/farma-icons/respiratory.png" alt="FR" class="farma-icon">
       <span matPrefix>&nbsp;&nbsp;</span>
-      <input type="number" matInput placeholder="Frecuencia Respiratoria">
+      <input type="number" matInput placeholder="Frecuencia Respiratoria" formControlName="sv_fr" required>
       <span matSuffix>&nbsp;rpm</span>
     </mat-form-field>
     <br>
     <mat-form-field class="p100">
       <img matPrefix src="../../../../assets/farma-icons/heart-rate.png" alt="FC" class="farma-icon">
       <span matPrefix>&nbsp;&nbsp;</span>
-      <input type="number" matInput placeholder="Frecuencia Cardíaca">
+      <input type="number" matInput placeholder="Frecuencia Cardíaca" formControlName="sv_fc" required>
       <span matSuffix>&nbsp;bpm</span>
     </mat-form-field>
     <br>
     <mat-form-field class="p100">
       <img matPrefix src="../../../../assets/farma-icons/oxygen-sat.png" alt="SO" class="farma-icon">
       <span matPrefix>&nbsp;&nbsp;</span>
-      <input type="number" matInput placeholder="Saturación de Óxigeno">
+      <input type="number" matInput placeholder="Saturación de Óxigeno" formControlName="sv_so" required>
       <span matSuffix>&nbsp;%</span>
     </mat-form-field>
     <br>
     <button mat-raised-button mat-dialog-close>Cancelar</button>
-    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formSignosVitales.value" [disabled]="!formSignosVitales.valid" class="btn-submit">Registrar</button>
   </form>
 </div>

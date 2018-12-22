@@ -42,13 +42,38 @@ export class CalendarioComponent implements OnInit {
         list:     'Lista'
       },
       events: [
-        {
-          id: '1',
-          resourceId: 'a',
-          title: 'Meeting',
-          start: '2018-12-18 12:00',
-          end: '2018-12-18 14:00'
-        }
+        { title: 'Dormir',              start: '2018-12-21 00:00', end: '2018-12-21 05:00' },
+        { title: 'Desayuno',            start: '2018-12-21 05:00', end: '2018-12-21 06:00' },
+        { title: 'Baño',                start: '2018-12-21 06:00', end: '2018-12-21 07:00' },
+        { title: 'Visita Enfermera',    start: '2018-12-21 07:00', end: '2018-12-21 08:00' },
+        { title: 'Cambio de Invasivo',  start: '2018-12-21 08:00', end: '2018-12-21 09:00' },
+        { title: 'Leche',               start: '2018-12-21 09:00', end: '2018-12-21 10:00' },
+        { title: 'Ejercicio KTR',       start: '2018-12-21 10:00', end: '2018-12-21 10:30' },
+        { title: 'Curación',            start: '2018-12-21 10:30', end: '2018-12-21 11:00' },
+        { title: 'Aseo Bucal',          start: '2018-12-21 11:00', end: '2018-12-21 12:00' },
+        { title: 'Paseo en silla',      start: '2018-12-21 12:00', end: '2018-12-21 13:00' },
+        { title: 'Dormir',              start: '2018-12-21 13:00', end: '2018-12-21 17:00' },
+        { title: 'Leche',               start: '2018-12-21 17:00', end: '2018-12-21 18:00' },
+        { title: 'Cambio Collarín',     start: '2018-12-21 18:00', end: '2018-12-21 20:00' },
+        { title: 'Curación',            start: '2018-12-21 20:00', end: '2018-12-21 21:00' },
+        { title: 'Leche',               start: '2018-12-21 21:00', end: '2018-12-21 22:00' },
+        { title: 'Muda',                start: '2018-12-21 22:00', end: '2018-12-22 00:00' },
+        { title: 'Dormir',              start: '2018-12-22 00:00', end: '2018-12-22 05:00' },
+        { title: 'Desayuno',            start: '2018-12-22 05:00', end: '2018-12-22 06:00' },
+        { title: 'Baño',                start: '2018-12-22 06:00', end: '2018-12-22 07:00' },
+        { title: 'Visita Enfermera',    start: '2018-12-22 07:00', end: '2018-12-22 08:00' },
+        { title: 'Cambio de Invasivo',  start: '2018-12-22 08:00', end: '2018-12-22 09:00' },
+        { title: 'Leche',               start: '2018-12-22 09:00', end: '2018-12-22 10:00' },
+        { title: 'Ejercicio KTR',       start: '2018-12-22 10:00', end: '2018-12-22 10:30' },
+        { title: 'Curación',            start: '2018-12-22 10:30', end: '2018-12-22 11:00' },
+        { title: 'Aseo Bucal',          start: '2018-12-22 11:00', end: '2018-12-22 12:00' },
+        { title: 'Paseo en silla',      start: '2018-12-22 12:00', end: '2018-12-22 13:00' },
+        { title: 'Dormir',              start: '2018-12-22 13:00', end: '2018-12-22 17:00' },
+        { title: 'Leche',               start: '2018-12-22 17:00', end: '2018-12-22 18:00' },
+        { title: 'Cambio Collarín',     start: '2018-12-22 18:00', end: '2018-12-22 20:00' },
+        { title: 'Curación',            start: '2018-12-22 20:00', end: '2018-12-22 21:00' },
+        { title: 'Leche',               start: '2018-12-22 21:00', end: '2018-12-22 22:00' },
+        { title: 'Muda',                start: '2018-12-22 22:00', end: '2018-12-23 00:00' }
       ]
     };
   }

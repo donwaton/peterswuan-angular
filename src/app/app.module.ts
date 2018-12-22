@@ -20,6 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -34,6 +37,7 @@ import { AlertasComponent } from './components/ficha-paciente/alertas/alertas.co
 import { ActividadesComponent } from './components/ficha-paciente/actividades/actividades.component';
 import { CalendarioComponent } from './components/ficha-paciente/calendario/calendario.component';
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
+import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent },
@@ -55,10 +59,12 @@ const routes: Routes = [
     AlertasComponent,
     ActividadesComponent,
     CalendarioComponent,
-    ModalSignosVitalesComponent
+    ModalSignosVitalesComponent,
+    ModalSignosVitales24hComponent
   ],
   entryComponents: [
-    ModalSignosVitalesComponent
+    ModalSignosVitalesComponent,
+    ModalSignosVitales24hComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -79,6 +85,9 @@ const routes: Routes = [
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatProgressBarModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],

@@ -15,12 +15,20 @@ const httpOptions = {
 })
 export class SignosVitalesService {
 
-  //readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/pacientes';
-  readonly ROOT_URL = '/API_peterswuan/index.php/signosvitales';
+  readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/signosvitales';
+  //readonly ROOT_URL = '/API_peterswuan/index.php/signosvitales';
   
   constructor(private http: HttpClient) { }
 
   getSignosVitales(id){
     return this.http.get<SignosVitales>(this.ROOT_URL + '/signosvitales/'+id,httpOptions);
+  }
+
+  getSignosVitales24h(id){
+    return this.http.get<SignosVitales>(this.ROOT_URL + '/signosvitales24h/'+id,httpOptions);
+  }
+
+  insertSignosVitales(data:any){
+    return this.http.put(this.ROOT_URL + '/signosvitales',data,httpOptions);
   }
 }

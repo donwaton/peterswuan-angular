@@ -12,6 +12,10 @@
     font-size: 12px;
 }
 
+.fc-agenda-view .fc-day-grid {
+    display: none !important;
+}
+
 .p100{
     width:100%;
 }
