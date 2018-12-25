@@ -1,36 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  // getPaciente(id){
-  //   this.pacienteService.getPaciente(id)
-  //     .subscribe(resp => {
-  //       this.paciente = resp.paciente;
-  //     })
-  // }
+export class AppComponent implements OnInit{
+  logIn: boolean;
 
-  // insertPaciente(){
-  //   this.pacienteService.insertPaciente(this.formPaciente.value)
-  //     .subscribe(x=>{
-  //       this.pacienteService.getListaPacientes()
-  //         .subscribe(resp => {
-  //           this.listaPacientes = resp.pacientes;
-  //         })  
-  //     })
-  // }
+  constructor(router:Router) {
+    router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        if(localStorage.getItem('logIn')=="true") { this.logIn=true }
+        else {this.logIn = false } 
+      }
+    })
+  }
 
-  // updatePaciente(id, data){
-  //   console.log(data);
-  //   this.pacienteService.updatePaciente(id, this.formPaciente.value)
-  //     .subscribe(x=>{
-  //       this.pacienteService.getListaPacientes()
-  //         .subscribe(resp => {
-  //           this.listaPacientes = resp.pacientes;
-  //         })  
-  //     })
-  // }
+  
+  ngOnInit(){
+    if(localStorage.getItem('logIn')=="true") { this.logIn=true }
+    else {this.logIn = false } 
+  }
+
 }

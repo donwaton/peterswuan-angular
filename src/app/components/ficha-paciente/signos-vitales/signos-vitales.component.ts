@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { formatDate } from '@angular/common';
 import { SignosVitalesService } from '../../../services/signos-vitales.service';
 import { ModalSignosVitalesComponent } from '../../modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from '../../modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
@@ -44,6 +43,7 @@ export class SignosVitalesComponent implements OnInit {
       .subscribe(resp => {
         if(resp) {
           resp['paciente_id'] = parseInt(this.pacienteId);
+          resp['user_id'] = parseInt(localStorage.getItem('user_id'));
           this.insertSV(resp);
         }
       });
@@ -58,7 +58,7 @@ export class SignosVitalesComponent implements OnInit {
   insertSV(data){
     this.signosVitalesService.insertSignosVitales(data)
       .subscribe(resp => {
-        this.snackBar.open('Signos vitales ingresados!',"ok",{duration: 2000});
+        this.snackBar.open('Signos vitales ingresados!',"Ok",{duration: 2000});
         this.signosVitales = data;
       },
       error => error

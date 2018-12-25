@@ -1,7 +1,9 @@
-<mat-list role="list">
-  <mat-list-item role="listitem" 
-    *ngFor="let paciente of listaPacientes" 
-    routerLink="/ficha-paciente/{{paciente.paciente_id}}">
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<div class="containe-fluid" class="card-deck">
+  <div class="col-sm-4 mt-2" *ngFor="let paciente of listaPacientes">
+    <mat-card routerLink="/ficha-paciente/{{paciente.paciente_id}}">
+      <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño" class="img-avatar">
       {{ paciente.paciente_nombre }}
-  </mat-list-item>
-</mat-list>
+    </mat-card>
+  </div>
+</div>

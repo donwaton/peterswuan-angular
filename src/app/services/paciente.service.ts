@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pacientes } from '../domain/Pacientes';
 import { Paciente } from '../domain/Paciente';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,8 +16,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PacienteService {
-  readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/pacientes';
-  //readonly ROOT_URL = '/API_peterswuan/index.php/pacientes';
+
+  ROOT_URL = environment.API_ROOT_URL+'pacientes';
   
   constructor(private http: HttpClient) { }
 

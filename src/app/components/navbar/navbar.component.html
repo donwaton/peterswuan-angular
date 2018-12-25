@@ -1,0 +1,8 @@
+<mat-toolbar class="navbar">
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/lista-pacientes">Lista de Pacientes</button>
+      <button mat-menu-item (click)="logOut()">Cerrar Sesión</button>
+    </mat-menu>
+    <img src="../../../../assets/logo.png" alt="logo" class="img-nav" routerLink="/home">
+</mat-toolbar>

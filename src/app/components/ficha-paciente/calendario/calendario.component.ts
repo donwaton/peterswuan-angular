@@ -33,7 +33,7 @@ export class CalendarioComponent implements OnInit {
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'agendaDay,listMonth',
+        right: 'agendaDay,listDay',
       },
       buttonText:
       {

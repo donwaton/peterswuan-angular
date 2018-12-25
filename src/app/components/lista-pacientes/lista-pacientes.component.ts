@@ -7,6 +7,7 @@ import { PacienteService } from '../../services/paciente.service';
   styleUrls: ['./lista-pacientes.component.css']
 })
 export class ListaPacientesComponent implements OnInit {
+  loading = true;
   listaPacientes: Array<any>;
 
   constructor(private pacienteService: PacienteService) { }
@@ -15,6 +16,7 @@ export class ListaPacientesComponent implements OnInit {
     this.pacienteService.getListaPacientes()
       .subscribe(resp=>{
         this.listaPacientes = resp.pacientes;
+        this.loading = false;
       });
   }
 

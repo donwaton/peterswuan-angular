@@ -1,0 +1,10 @@
+.navbar{
+    background-color: #ffffff;
+    color: #1b4a97;
+}
+
+.img-nav{
+    height: 38px;
+    position: absolute;
+    margin-left: 100px;
+}

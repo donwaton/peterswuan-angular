@@ -23,28 +23,35 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FichaPacienteComponent } from './components/ficha-paciente/ficha-paciente.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
-
-import { PacienteService } from './services/paciente.service';
 import { DatosPersonalesComponent } from './components/ficha-paciente/datos-personales/datos-personales.component';
 import { SignosVitalesComponent } from './components/ficha-paciente/signos-vitales/signos-vitales.component';
 import { AlertasComponent } from './components/ficha-paciente/alertas/alertas.component';
-import { ActividadesComponent } from './components/ficha-paciente/actividades/actividades.component';
 import { CalendarioComponent } from './components/ficha-paciente/calendario/calendario.component';
+import { EvolucionComponent } from './components/ficha-paciente/evolucion/evolucion.component';
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
+import { ModalEvolucionComponent } from './components/modals/modal-evolucion/modal-evolucion.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { PacienteService } from './services/paciente.service';
+import { SignosVitalesService } from './services/signos-vitales.service';
+import { EvolucionService } from './services/evolucion.service';
+import { LoginService } from './services/login.service';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'ficha-paciente/:id', component: FichaPacienteComponent },
+  { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
+  { path: 'lista-pacientes', component: ListaPacientesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'lista-pacientes', component: ListaPacientesComponent },
-  { path: '**', component: HomeComponent },
-  { path: '', component: HomeComponent }
+  { path: '**', component: ListaPacientesComponent, canActivate: [AuthGuard] },
+  { path: '', component: ListaPacientesComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -57,14 +64,17 @@ const routes: Routes = [
     DatosPersonalesComponent,
     SignosVitalesComponent,
     AlertasComponent,
-    ActividadesComponent,
+    EvolucionComponent,
     CalendarioComponent,
     ModalSignosVitalesComponent,
-    ModalSignosVitales24hComponent
+    ModalSignosVitales24hComponent,
+    ModalEvolucionComponent,
+    NavbarComponent
   ],
   entryComponents: [
     ModalSignosVitalesComponent,
-    ModalSignosVitales24hComponent
+    ModalSignosVitales24hComponent,
+    ModalEvolucionComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -88,11 +98,16 @@ const routes: Routes = [
     MatSnackBarModule,
     MatTableModule,
     MatProgressBarModule,
+    MatIconModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
-    PacienteService
+    PacienteService,
+    SignosVitalesService,
+    EvolucionService,
+    LoginService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

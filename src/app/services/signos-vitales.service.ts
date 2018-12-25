@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SignosVitales } from '../domain/SignosVitales';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,10 +15,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SignosVitalesService {
-
-  readonly ROOT_URL = 'http://hcifuentes.com/API_peterswuan/index.php/signosvitales';
-  //readonly ROOT_URL = '/API_peterswuan/index.php/signosvitales';
   
+  ROOT_URL = environment.API_ROOT_URL+'signosvitales';
+
   constructor(private http: HttpClient) { }
 
   getSignosVitales(id){

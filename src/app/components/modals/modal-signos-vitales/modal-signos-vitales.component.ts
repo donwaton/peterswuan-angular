@@ -11,7 +11,6 @@ export class ModalSignosVitalesComponent {
     sv_fc : new FormControl(),
     sv_fr: new FormControl(),
     sv_so: new FormControl(),
-    sv_temp: new FormControl(),
-    sv_date: new FormControl()
+    sv_temp: new FormControl()
   });
 }

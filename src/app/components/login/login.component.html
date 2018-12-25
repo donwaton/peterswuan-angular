@@ -1,3 +1,24 @@
-<p>
-  login works!
-</p>
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<mat-card class="login-card">
+  <div class="login-up">
+    <img src="../../../../assets/logo.png" alt="logo" class="img-logo">
+    <p>Estimado usuario, esta ingresando a un sitio protegido.<br>
+        Ingrese su usuario y contraseña para continuar.</p>
+  </div>
+ 
+  <div class="login-form">
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <mat-form-field class="p100">
+        <input matInput placeholder="Usuario" formControlName="user_name" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="p100">
+        <input type="password" matInput placeholder="Contraseña" formControlName="user_password" required>
+      </mat-form-field>
+      <mat-error *ngIf="errorMsg">{{ errorMsg }}</mat-error>
+      <br>
+      <button mat-raised-button color="primary" [disabled]="!formLogin.valid || (loading==true && formLogin.valid)" class="btn-submit" class="btn-login">Ingresar</button>
+    </form>
+  </div>
+</mat-card>
