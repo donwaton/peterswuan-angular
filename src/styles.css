@@ -23,3 +23,9 @@
 body {
     background: #47b0dc;
 }
+
+pre{
+    white-space: pre-wrap;
+    font-family: unset;
+    font-size: unset;
+}

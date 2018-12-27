@@ -1,0 +1,163 @@
+<div matDialogTitle>Nuevo paciente</div>
+<mat-vertical-stepper #stepper>
+  <mat-step [stepControl]="formPaciente">
+    <form [formGroup]="formPaciente">
+      <ng-template matStepLabel>Datos del Paciente</ng-template>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Rut" formControlName="paciente_rut" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Nombre" formControlName="paciente_nombre" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Alergias" formControlName="paciente_alergias">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Diagnóstico" formControlName="paciente_diagnostico" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Complejidad" formControlName="paciente_complejidad" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput [matDatepicker]="fechaIngreso" placeholder="Fecha de ingreso" formControlName="paciente_fecha_ingreso">
+            <mat-datepicker-toggle matSuffix [for]="fechaIngreso"></mat-datepicker-toggle>
+            <mat-datepicker #fechaIngreso></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Previsión" formControlName="paciente_prevision" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <mat-select placeholder="Sexo" formControlName="paciente_sexo" required>
+                <mat-option value="Masculino">Masculino</mat-option>
+                <mat-option value="Femenino">Femenino</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+              <input matInput [matDatepicker]="fechaNacimicento" placeholder="Fecha de nacimiento" formControlName="paciente_fecha_nac">
+              <mat-datepicker-toggle matSuffix [for]="fechaNacimicento"></mat-datepicker-toggle>
+              <mat-datepicker #fechaNacimicento></mat-datepicker>
+            </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <button mat-raised-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formPaciente">
+    <form [formGroup]="formPaciente">
+      <ng-template matStepLabel>Datos Administrativos</ng-template>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Representante legal" formControlName="contacto_nombre1" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Ocupación" formControlName="paciente_ocupacion" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Telefono" formControlName="contacto_tel1" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput type="email" placeholder="Email" formControlName="paciente_mail" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Domicilio" formControlName="paciente_domicilio" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Unidad de traslado móvil:" formControlName="paciente_utm">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Nº Socio" formControlName="paciente_utm_num">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Télefono" formControlName="paciente_utm_fono">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button mat-raised-button matStepperPrevious>Anterior</button>
+        <button mat-raised-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formPaciente">
+    <form [formGroup]="formPaciente">
+    <ng-template matStepLabel>Staff Médico</ng-template>
+    <div class="row">
+      <div class="col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="Médico:" formControlName="medico_nombre" required>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="Enfermera:" formControlName="enfermera_nombre" required>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="KTR:" formControlName="kine_r_nombre" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="KTM:" formControlName="kine_m_nombre" required>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="Fonoaudiólogo" formControlName="fono_nombre" required>
+        </mat-form-field>
+      </div>
+    </div>
+    </form>
+    <div>
+      <button mat-raised-button (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="formPaciente.value" [disabled]="!formPaciente.valid" class="btn-submit">Registrar</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

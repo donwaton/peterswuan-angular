@@ -24,6 +24,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -35,16 +38,18 @@ import { SignosVitalesComponent } from './components/ficha-paciente/signos-vital
 import { AlertasComponent } from './components/ficha-paciente/alertas/alertas.component';
 import { CalendarioComponent } from './components/ficha-paciente/calendario/calendario.component';
 import { EvolucionComponent } from './components/ficha-paciente/evolucion/evolucion.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
 import { ModalEvolucionComponent } from './components/modals/modal-evolucion/modal-evolucion.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { ModalPacienteComponent } from './components/modals/modal-paciente/modal-paciente.component';
 
 import { PacienteService } from './services/paciente.service';
 import { SignosVitalesService } from './services/signos-vitales.service';
 import { EvolucionService } from './services/evolucion.service';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -66,15 +71,18 @@ const routes: Routes = [
     AlertasComponent,
     EvolucionComponent,
     CalendarioComponent,
+    NavbarComponent,
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
     ModalEvolucionComponent,
-    NavbarComponent
+    ModalPacienteComponent,
+    ListaUsuariosComponent
   ],
   entryComponents: [
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
-    ModalEvolucionComponent
+    ModalEvolucionComponent,
+    ModalPacienteComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -99,6 +107,9 @@ const routes: Routes = [
     MatTableModule,
     MatProgressBarModule,
     MatIconModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],

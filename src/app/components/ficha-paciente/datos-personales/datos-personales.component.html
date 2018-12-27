@@ -8,11 +8,37 @@
           {{ paciente.paciente_nombre }}
       </mat-panel-description>
     </mat-expansion-panel-header>
-      <p><b>Ficha Nº:</b> {{ paciente.paciente_id }}</p>
-      <p><b>RUT:</b> {{ paciente.paciente_rut }}</p>
-      <p><b>Edad:</b> 8 años y 3 meses</p>
-      <p><b>Sexo:</b> {{ paciente.paciente_sexo }}</p>
-      <p><b>Médico Tratante:</b> {{ paciente.medico_nombre }}</p>
-      <p><b>Diagnóstico:</b> {{ paciente.paciente_diagnostico }}</p>
+
+
+    <mat-tab-group>
+        <mat-tab label="Paciente"> 
+          <p><b>Ficha Nº:</b> {{ paciente.paciente_id }}</p>
+          <p><b>RUT:</b> {{ paciente.paciente_rut }}</p>
+          <p><b>Sexo:</b> {{ paciente.paciente_sexo }}</p>
+          <p><b>Fecha Nacimiento:</b>{{ paciente.paciente_fecha_nac }}</p>
+          <p><b>Diagnóstico:</b> {{ paciente.paciente_diagnostico }}</p>
+          <p><b>Alergias:</b> {{ paciente.paciente_alergias }}</p>
+          <p><b>Complejidad:</b> {{ paciente.paciente_complejidad }}</p>
+          <p><b>Fecha de ingreso:</b> {{ paciente.paciente_fecha_ingreso }}</p>
+          <p><b>Previsión:</b> {{ paciente.paciente_prevision }}</p>
+        </mat-tab>
+        <mat-tab label="Administrativos">
+          <p><b>Representante legal:</b> {{ paciente.contacto_nombre1 }}</p>
+          <p><b>Ocupación:</b> {{ paciente.paciente_ocupacion }}</p>
+          <p><b>Email:</b> {{ paciente.paciente_mail }}</p>
+          <p><b>Teléfono:</b> {{ paciente.contacto_tel1 }}</p>
+          <p><b>Domicilio:</b> {{ paciente.paciente_domicilio }}</p>
+          <p><b>Unidad de traslado móvil:</b> {{ paciente.paciente_utm }}</p>
+          <p><b>Nº Socio:</b> {{ paciente.paciente_utm_num }}</p>
+          <p><b>Teléfono:</b> {{ paciente.paciente_utm_fono }}</p>
+        </mat-tab>
+        <mat-tab label="Staff"> 
+          <p><b>Médico Tratante:</b> {{ paciente.medico_nombre }}</p>
+          <p><b>Enfermera:</b> {{ paciente.enfermera_nombre }}</p>
+          <p><b>KTR:</b> {{ paciente.kine_r_nombre }}</p>
+          <p><b>KTM:</b> {{ paciente.kine_m_nombre }}</p>
+          <p><b>Fonoaudiólogo:</b> {{ paciente.fono_nombre }}</p>
+        </mat-tab>
+      </mat-tab-group>
   </mat-expansion-panel>
 </mat-accordion>

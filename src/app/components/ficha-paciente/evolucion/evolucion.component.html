@@ -3,11 +3,11 @@
 <mat-accordion>
     <mat-expansion-panel class="mt-2" *ngFor="let evolucion of listaEvolucion">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ evolucion.user_names }}
+        <mat-panel-title style="width:0px;">
+            {{ evolucion.ep_date | date:'dd/MM/yy HH:mm' }}
         </mat-panel-title>
         <mat-panel-description>
-            {{ evolucion.ep_date | date:'short' }}
+            {{ evolucion.tipousuario_nombre }}: {{ evolucion.user_names }}
         </mat-panel-description>
       </mat-expansion-panel-header>
         <b>Información relevante referida:</b><br>
