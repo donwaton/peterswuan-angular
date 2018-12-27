@@ -39,6 +39,7 @@ import { AlertasComponent } from './components/ficha-paciente/alertas/alertas.co
 import { CalendarioComponent } from './components/ficha-paciente/calendario/calendario.component';
 import { EvolucionComponent } from './components/ficha-paciente/evolucion/evolucion.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
 import { ModalEvolucionComponent } from './components/modals/modal-evolucion/modal-evolucion.component';
@@ -49,11 +50,12 @@ import { SignosVitalesService } from './services/signos-vitales.service';
 import { EvolucionService } from './services/evolucion.service';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
-import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { UsuarioService } from './services/usuario.service';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
   { path: 'lista-pacientes', component: ListaPacientesComponent, canActivate: [AuthGuard] },
+  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '**', component: ListaPacientesComponent, canActivate: [AuthGuard] },
   { path: '', component: ListaPacientesComponent, canActivate: [AuthGuard] }
@@ -85,8 +87,8 @@ const routes: Routes = [
     ModalPacienteComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     FullCalendarModule,
@@ -118,6 +120,7 @@ const routes: Routes = [
     SignosVitalesService,
     EvolucionService,
     LoginService,
+    UsuarioService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

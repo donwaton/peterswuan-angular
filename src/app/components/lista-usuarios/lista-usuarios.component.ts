@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UsuarioService } from '../../services/usuario.service';
+import { Usuarios, datosUsuario } from '../../domain/Usuarios';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-usuarios.component.css']
 })
 export class ListaUsuariosComponent implements OnInit {
+  loading = true;
+  listaUsuarios : Array<datosUsuario>;
 
-  constructor() { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+    this.usuarioService.getListaUsuarios()
+      .subscribe(resp=>{
+        this.listaUsuarios = resp.usuarios;
+        this.loading = false;
+      })
   }
 
 }
