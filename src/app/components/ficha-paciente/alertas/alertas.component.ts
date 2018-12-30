@@ -3,7 +3,7 @@ import { AlertasService } from '../../../services/alertas.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ModalUsuarioComponent } from '../../modals/modal-usuario/modal-usuario.component';
+import { ModalAlertasComponent } from '../../modals/modal-alertas/modal-alertas.component';
 
 @Component({
   selector: 'app-alertas',
@@ -37,15 +37,27 @@ export class AlertasComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialog.open(ModalUsuarioComponent)
+    this.dialog.open(ModalAlertasComponent, {
+      width: '400px'
+    })
       .afterClosed()
       .subscribe(resp => {
         if(resp) {
           resp['paciente_id'] = parseInt(this.pacienteId);
           resp['user_id'] = parseInt(localStorage.getItem('user_id'));
-          console.log(resp);
+          this.insertAlerta(resp);
         }
       });
+  }
+
+  insertAlerta(data){
+    this.alertasService.insert(data)
+      .subscribe(resp=>{
+        this.snackBar.open('Se ha generado la alerta para el paciente',"Ok",{duration: 2000});
+        this.getAlertas(this.pacienteId);
+      },
+        error => error
+      )
   }
 
 }

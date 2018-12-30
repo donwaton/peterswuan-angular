@@ -1,0 +1,32 @@
+<div matDialogTitle>Ingresar Alerta</div>
+<div class="container">
+  <form [formGroup]="formAlerta">
+    <mat-form-field class="p100">
+        <mat-select placeholder="Motivo" formControlName="alerta_motivo" required>
+            <mat-option value="Aislamiento">Aislamiento</mat-option>
+            <mat-option value="Alergias">Alergias</mat-option>
+            <mat-option value="Incurrencias">Incurrencias</mat-option>
+          </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <mat-label>Descripción:</mat-label> 
+      <textarea matInput formControlName="alerta_desc" required></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <input matInput [matDatepicker]="fechaInicio" placeholder="Inicio alerta" formControlName="alerta_inicio" required>
+      <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+      <mat-datepicker #fechaInicio></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <input matInput [matDatepicker]="fechaFin" placeholder="Fin alerta" formControlName="alerta_fin" required>
+      <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+      <mat-datepicker #fechaFin></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formAlerta.value" [disabled]="!formAlerta.valid" class="btn-submit">Registrar</button>
+  </form>
+</div>

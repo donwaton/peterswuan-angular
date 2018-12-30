@@ -45,6 +45,7 @@ import { ModalSignosVitales24hComponent } from './components/modals/modal-signos
 import { ModalEvolucionComponent } from './components/modals/modal-evolucion/modal-evolucion.component';
 import { ModalPacienteComponent } from './components/modals/modal-paciente/modal-paciente.component';
 import { ModalUsuarioComponent } from './components/modals/modal-usuario/modal-usuario.component';
+import { ModalAlertasComponent } from './components/modals/modal-alertas/modal-alertas.component';
 
 import { PacienteService } from './services/paciente.service';
 import { SignosVitalesService } from './services/signos-vitales.service';
@@ -80,14 +81,16 @@ const routes: Routes = [
     ModalEvolucionComponent,
     ModalPacienteComponent,
     ListaUsuariosComponent,
-    ModalUsuarioComponent
+    ModalUsuarioComponent,
+    ModalAlertasComponent
   ],
   entryComponents: [
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
     ModalEvolucionComponent,
     ModalPacienteComponent,
-    ModalUsuarioComponent
+    ModalUsuarioComponent,
+    ModalAlertasComponent
   ],
   imports: [
     BrowserModule,

@@ -22,4 +22,8 @@ export class AlertasService {
   get(id){
     return this.http.get<Alertas>(this.ROOT_URL + '/alerta/'+id,httpOptions);
   }
+
+  insert(data){
+    return this.http.put(this.ROOT_URL + '/alerta/', data, httpOptions);
+  }
 }

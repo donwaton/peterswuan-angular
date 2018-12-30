@@ -29,7 +29,7 @@ export class EvolucionComponent implements OnInit {
 
   newEvolucion(){
     this.dialog.open(ModalEvolucionComponent, {
-      width: '800px',
+      width: '800px'
     })
     .afterClosed()
     .subscribe(resp => {
