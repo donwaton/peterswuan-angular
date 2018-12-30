@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Usuario } from '../domain/Usuarios';
+import { environment } from '../../environments/environment';
+import { Alertas } from '../domain/Alertas';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,13 +13,13 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  ROOT_URL = environment.API_ROOT_URL+'login';
-  
+export class AlertasService {
+
+  ROOT_URL = environment.API_ROOT_URL+'alertas';
+
   constructor(private http: HttpClient) { }
 
-  login(data){
-    return this.http.post<Usuario>(this.ROOT_URL + '/login', data, httpOptions);
+  get(id){
+    return this.http.get<Alertas>(this.ROOT_URL + '/alerta/'+id,httpOptions);
   }
-
 }

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_ROOT_URL : "http://hcifuentes.com/API_peterswuan/index.php/"
+  API_ROOT_URL : "https://hcifuentes.com/API_peterswuan/index.php/"
 };

@@ -19,8 +19,11 @@
             <input matInput placeholder="Alergias" formControlName="paciente_alergias">
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
+        <div class="col-sm-4">
+          <mat-form-field class="p100">
+            <input matInput placeholder="Grupo Sanguíneo" formControlName="paciente_grupo_sang" required>
+          </mat-form-field>
+        </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
             <input matInput placeholder="Diagnóstico" formControlName="paciente_diagnostico" required>
@@ -38,8 +41,6 @@
             <mat-datepicker #fechaIngreso></mat-datepicker>
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
         <div class="col-sm-4">
           <mat-form-field class="p100">
             <input matInput placeholder="Previsión" formControlName="paciente_prevision" required>

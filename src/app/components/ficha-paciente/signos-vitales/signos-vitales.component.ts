@@ -15,10 +15,12 @@ export class SignosVitalesComponent implements OnInit {
   signosVitales: any;
   pacienteId: string;
 
-  constructor(private dialog: MatDialog, 
+  constructor(
+    private dialog: MatDialog, 
     private route: ActivatedRoute,
-    private signosVitalesService: SignosVitalesService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private signosVitalesService: SignosVitalesService
+    ) { }
 
   ngOnInit() {
     this.route.paramMap

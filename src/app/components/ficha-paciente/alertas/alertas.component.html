@@ -1,2 +1,8 @@
-<mat-card class="mt-2 alerta" *ngIf="false"><mat-icon>warning</mat-icon> Alerta!</mat-card>
+<button mat-raised-button color="primary" (click)="openDialog()" class="mt-2">Crear Alerta</button>
+
+<div *ngIf="alertas">
+    <div class="mt-2 alerta" *ngFor="let alerta of alertas">
+        <mat-icon class="alerta-icon">warning</mat-icon><span class="alerta-text">{{ alerta.alerta_desc }}</span> 
+    <div>
+</div>
 <!-- <mat-card class="mt-2 indicacion">Indicacion!</mat-card> -->

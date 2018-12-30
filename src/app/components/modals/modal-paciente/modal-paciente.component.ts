@@ -17,6 +17,7 @@ export class ModalPacienteComponent {
     paciente_fecha_ingreso : new FormControl(),
     paciente_prevision : new FormControl(),
     paciente_sexo : new FormControl(),
+    paciente_grupo_sang: new FormControl(),
     paciente_fecha_nac : new FormControl(),
 
     paciente_domicilio : new FormControl(),

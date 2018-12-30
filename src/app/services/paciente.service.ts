@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Pacientes } from '../domain/Pacientes';
-import { Paciente } from '../domain/Paciente';
+import { Paciente } from '../domain/Pacientes';
 import { environment } from '../../environments/environment';
 
 const httpOptions = {

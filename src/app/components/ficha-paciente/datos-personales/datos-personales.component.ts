@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from '../../../services/paciente.service';
 import { ActivatedRoute } from '@angular/router';
+import { AntropometricosService } from '../../../services/antropometricos.service';
 
 @Component({
   selector: 'app-datos-personales',
@@ -9,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DatosPersonalesComponent implements OnInit {
   paciente: any;
+  antropometricos: any;
 
-  constructor(private route: ActivatedRoute,private pacienteService: PacienteService) { }
+  constructor(private route: ActivatedRoute,private pacienteService: PacienteService, private antropometricosService : AntropometricosService) { }
 
   ngOnInit() {
     this.route.paramMap
@@ -23,7 +25,11 @@ export class DatosPersonalesComponent implements OnInit {
     this.pacienteService.getPaciente(id)
       .subscribe(resp => {
         this.paciente = resp.paciente;
-      })
+      });
+    this.antropometricosService.get(id)
+      .subscribe(resp => {
+        this.antropometricos = resp.antropometricos;
+      });
   }
 
 }
