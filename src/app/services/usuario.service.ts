@@ -19,8 +19,12 @@ export class UsuarioService {
   
   constructor(private http: HttpClient) { }
 
-  getListaUsuarios(){
+  getList(){
     return this.http.get<Usuarios>(this.ROOT_URL + '/listausuarios',httpOptions)
+  }
+
+  insert(data){
+    return this.http.put(this.ROOT_URL + '/usuario', data)
   }
   
 }

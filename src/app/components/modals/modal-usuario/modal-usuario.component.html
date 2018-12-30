@@ -1,3 +1,33 @@
-<p>
-  usuario works!
-</p>
+<div matDialogTitle>Ingresar Alerta</div>
+<div class="container">
+  <form [formGroup]="formUsuario">
+    <mat-form-field class="p100">
+        <mat-select placeholder="Perfil" formControlName="tipousuario_id" required>
+            <mat-option value="1">Administrador</mat-option>
+            <mat-option value="2">Coordinador de Farmacia</mat-option>
+            <mat-option value="3">Coordinador de Enfermería</mat-option>
+            <mat-option value="4">Enfermería</mat-option>
+            <mat-option value="5">TENS</mat-option>
+          </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <mat-label>Usuario:</mat-label> 
+      <input matInput placeholder="Usuario" formControlName="user_name" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <mat-label>Nombre:</mat-label> 
+      <input matInput placeholder="Nombre" formControlName="user_names" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <mat-label>Email:</mat-label> 
+      <input type="email" matInput placeholder="Email" formControlName="user_email" required>
+    </mat-form-field>
+    <br>
+    
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formUsuario.value" [disabled]="!formUsuario.valid" class="btn-submit">Registrar</button>
+  </form>
+</div>
