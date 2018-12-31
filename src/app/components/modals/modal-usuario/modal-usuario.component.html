@@ -1,8 +1,10 @@
-<div matDialogTitle>Ingresar Alerta</div>
+<div matDialogTitle *ngIf="!data">Crear Usuario</div>
+<div matDialogTitle *ngIf="data">Editar Usuario</div>
 <div class="container">
   <form [formGroup]="formUsuario">
     <mat-form-field class="p100">
         <mat-select placeholder="Perfil" formControlName="tipousuario_id" required>
+            <mat-option [value]="">Administrador</mat-option>
             <mat-option value="1">Administrador</mat-option>
             <mat-option value="2">Coordinador de Farmacia</mat-option>
             <mat-option value="3">Coordinador de Enfermería</mat-option>
@@ -23,7 +25,7 @@
     <br>
     <mat-form-field class="p100">
       <mat-label>Email:</mat-label> 
-      <input type="email" matInput placeholder="Email" formControlName="user_email" required>
+      <input type="email" matInput placeholder="Email" formControlName="user_email">
     </mat-form-field>
     <br>
     

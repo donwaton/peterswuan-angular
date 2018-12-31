@@ -12,7 +12,11 @@ export class DatosPersonalesComponent implements OnInit {
   paciente: any;
   antropometricos: any;
 
-  constructor(private route: ActivatedRoute,private pacienteService: PacienteService, private antropometricosService : AntropometricosService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private pacienteService: PacienteService, 
+    private antropometricosService: AntropometricosService
+  ) { }
 
   ngOnInit() {
     this.route.paramMap

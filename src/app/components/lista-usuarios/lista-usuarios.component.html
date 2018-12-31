@@ -1,6 +1,6 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
-<button mat-raised-button color="primary" (click)="openDialog()" class="mt-2">Nuevo usuario</button>
+<button mat-raised-button color="primary" (click)="newUsuario()" class="mt-2">Nuevo usuario</button>
 
 <div class="container-fluid mt-2">
   <mat-card>
@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of listaUsuarios">
+        <tr *ngFor="let usuario of listaUsuarios" (click)="updateUsuario(usuario.user_id)">
           <td>{{ usuario.user_name}}</td>
           <td>{{ usuario.user_names}}</td>
           <td>{{ usuario.user_email}}</td>

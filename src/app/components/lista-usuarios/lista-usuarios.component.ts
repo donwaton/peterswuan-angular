@@ -24,7 +24,7 @@ export class ListaUsuariosComponent implements OnInit {
     this.getListaUsuario()
   }
 
-  openDialog(){
+  newUsuario(){
     this.dialog.open(ModalUsuarioComponent, {
       width: '400px'
       })
@@ -53,5 +53,29 @@ export class ListaUsuariosComponent implements OnInit {
         this.loading = false;
       })
   }
+
+  updateUsuario(id){
+    this.dialog.open(ModalUsuarioComponent, {
+      data: { userId: id },
+      width: '400px'
+    })
+    .afterClosed()
+    .subscribe(resp=>{
+      if(resp){
+        this.actualizarUsuario(id,resp)
+      }
+    })
+  }
+
+  actualizarUsuario(id, data){
+    this.usuarioService.update(id, data)
+    .subscribe(resp =>{
+      this.snackBar.open('Se ha actualizado el usuario exitósamente',"Ok",{duration: 2000});
+      this.getListaUsuario();
+    },
+      error => error
+    )
+  }
+
 
 }
