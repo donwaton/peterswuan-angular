@@ -14,10 +14,12 @@ export class EvolucionComponent implements OnInit {
   listaEvolucion: any;
   pacienteId: string;
 
-  constructor(private dialog: MatDialog, 
+  constructor(
+    private dialog: MatDialog, 
     private route: ActivatedRoute, 
-    private evolucionService: EvolucionService,
-    private snackBar: MatSnackBar ) { }
+    private snackBar: MatSnackBar,
+    private evolucionService: EvolucionService
+  ) { }
 
   ngOnInit() {
     this.route.paramMap

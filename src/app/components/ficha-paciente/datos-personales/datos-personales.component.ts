@@ -35,5 +35,4 @@ export class DatosPersonalesComponent implements OnInit {
         this.antropometricos = resp.antropometricos;
       });
   }
-
 }

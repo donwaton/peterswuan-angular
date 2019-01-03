@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -53,6 +54,8 @@ import { EvolucionService } from './services/evolucion.service';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UsuarioService } from './services/usuario.service';
+import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
+import { ModalAdmMedComponent } from './components/modals/modal-adm-med/modal-adm-med.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -76,15 +79,18 @@ const routes: Routes = [
     EvolucionComponent,
     CalendarioComponent,
     NavbarComponent,
+    AdmMedicamentosComponent,
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
     ModalEvolucionComponent,
     ModalPacienteComponent,
     ListaUsuariosComponent,
     ModalUsuarioComponent,
-    ModalAlertasComponent
+    ModalAlertasComponent,
+    ModalAdmMedComponent
   ],
   entryComponents: [
+    ModalAdmMedComponent,
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
     ModalEvolucionComponent,
@@ -118,6 +124,7 @@ const routes: Routes = [
     MatStepperModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatAutocompleteModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],

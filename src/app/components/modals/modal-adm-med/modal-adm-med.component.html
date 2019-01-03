@@ -1,0 +1,60 @@
+<div matDialogTitle>Ingresar Medicamento</div>
+<mat-progress-bar mode="indeterminate" *ngIf="!listaMedicamentos"></mat-progress-bar>
+<div class="container" *ngIf="listaMedicamentos">
+  <form [formGroup]="formAdmMed">
+    <mat-form-field class="p100">
+      <mat-select placeholder="Medicamento" formControlName="insumo_id" required>
+        <mat-option *ngFor="let medicamento of listaMedicamentos" [value]="medicamento.insumo_id">
+          {{ medicamento.insumo_nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <mat-select placeholder="Via de administración" formControlName="pi_via_adm" required>
+        <mat-option value="Oral">Oral</mat-option>
+        <mat-option value="Topico">Topico</mat-option>
+        <mat-option value="Enteral">Enteral</mat-option>
+        <mat-option value="Parenteral">Parenteral</mat-option>
+        <mat-option value="Rectal">Rectal</mat-option>
+        <mat-option value="Ocular">Ocular</mat-option>
+        <mat-option value="Venosa">Venosa</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <input matInput placeholder="Posología" formControlName="pi_posologia" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+    <mat-select placeholder="Horarios de administración" formControlName="hi_hora" required multiple>
+      <mat-option value="00:00:00">00:00</mat-option>
+      <mat-option value="01:00:00">01:00</mat-option>
+      <mat-option value="02:00:00">02:00</mat-option>
+      <mat-option value="03:00:00">03:00</mat-option>
+      <mat-option value="04:00:00">04:00</mat-option>
+      <mat-option value="05:00:00">05:00</mat-option>
+      <mat-option value="06:00:00">06:00</mat-option>
+      <mat-option value="07:00:00">07:00</mat-option>
+      <mat-option value="08:00:00">08:00</mat-option>
+      <mat-option value="09:00:00">09:00</mat-option>
+      <mat-option value="10:00:00">10:00</mat-option>
+      <mat-option value="11:00:00">11:00</mat-option>
+      <mat-option value="12:00:00">12:00</mat-option>
+      <mat-option value="13:00:00">13:00</mat-option>
+      <mat-option value="14:00:00">14:00</mat-option>
+      <mat-option value="15:00:00">15:00</mat-option>
+      <mat-option value="16:00:00">16:00</mat-option>
+      <mat-option value="17:00:00">17:00</mat-option>
+      <mat-option value="18:00:00">18:00</mat-option>
+      <mat-option value="19:00:00">19:00</mat-option>
+      <mat-option value="20:00:00">20:00</mat-option>
+      <mat-option value="21:00:00">21:00</mat-option>
+      <mat-option value="22:00:00">22:00</mat-option>
+      <mat-option value="23:00:00">23:00</mat-option>
+    </mat-select>
+    </mat-form-field>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formAdmMed.value" [disabled]="!formAdmMed.valid" class="btn-submit">Registrar</button>
+  </form>
+</div>
