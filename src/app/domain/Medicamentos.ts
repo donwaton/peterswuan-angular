@@ -12,7 +12,7 @@ export interface DatosAdmMed {
 export interface AdmMed {
   err: string;
   mensaje: string;
-  adm_medicamentos: Array<DatosAdmMed>;
+  listaadministracion: Array<DatosAdmMed>;
 }
 
 export interface Medicamento {

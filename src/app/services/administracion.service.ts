@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Medicamentos } from '../domain/Medicamentos';
+import { AdmMed, Medicamentos } from '../domain/Medicamentos';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,17 +13,17 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class MedicamentosService {
+export class AdministracionService {
 
-  ROOT_URL = environment.API_ROOT_URL+'medicamentos';
+  ROOT_URL = environment.API_ROOT_URL+'administracion';
   
   constructor(private http: HttpClient) { }
 
-  getList(){
-    return this.http.get<Medicamentos>(this.ROOT_URL + '/listamedicamentos', httpOptions)
+  getList(id){
+    return this.http.get<AdmMed>(this.ROOT_URL + '/listaadministracion/' + id, httpOptions)
   }
 
-  putAdm(data){
-    return this.http.put(this.ROOT_URL + '/admmedpac', data, httpOptions)
+  putRegAdm(data){
+    return this.http.put(this.ROOT_URL + '/registaradministracion', data, httpOptions)
   }
 }

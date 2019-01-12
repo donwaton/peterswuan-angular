@@ -5,7 +5,15 @@
         <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño">
       </mat-panel-title>
       <mat-panel-description class="title-avatar">
-          {{ paciente.paciente_nombre }}
+          {{ paciente.paciente_nombre }} <br>
+          <div *ngIf="antropometricos">
+            <p><b>Peso:</b> 
+              {{ antropometricos.pa_peso }} Kg
+              <b>Talla:</b> 
+              {{ antropometricos.pa_talla }} cm
+              <b>Circunferencia Craneo:</b> 
+              {{ antropometricos.pa_circ_craneo }} cm</p>
+          </div>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
@@ -22,11 +30,6 @@
           <p><b>Fecha de ingreso:</b> {{ paciente.paciente_fecha_ingreso }}</p>
           <p><b>Previsión:</b> {{ paciente.paciente_prevision }}</p>
           <p><b>Grupo sanguíneo:</b> {{ paciente.paciente_grupo_sang }}</p>
-        <div *ngIf="antropometricos">
-          <p><b>Peso:</b> {{ antropometricos.pa_peso }}</p>
-          <p><b>Talla:</b> {{ antropometricos.pa_talla }}</p>
-          <p><b>Circunferencia Craneo:</b> {{ antropometricos.pa_circ_craneo }}</p>
-        </div>
         </mat-tab>
         <mat-tab label="Administrativos">
           <p><b>Representante legal:</b> {{ paciente.contacto_nombre1 }}</p>

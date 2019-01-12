@@ -2,7 +2,7 @@
 
 <button mat-raised-button color="primary" (click)="newAdmMed()" class="mt-2">Agregar medicamento</button>
 
-<div class="container-fluid mt-2" *ngIf="listaAdmMed">
+<div class="container-fluid mt-2" *ngIf="listaAdmMed!=''">
   <table class="table table-light table-sm">
     <thead>
       <tr>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let admMed of listaAdmMed">
-        <td><mat-checkbox></mat-checkbox></td>
+        <td><mat-checkbox (click)="confirmation(admMed.hi_id)"></mat-checkbox></td>
         <td>{{ admMed.hi_hora}}</td>
         <td>{{ admMed.insumo_nombre}}</td>
         <td>{{ admMed.pi_via_adm}}</td>

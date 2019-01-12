@@ -4,6 +4,8 @@ import { MedicamentosService } from '../../../services/medicamentos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAdmMedComponent } from '../../modals/modal-adm-med/modal-adm-med.component';
+import { AdministracionService } from '../../../services/administracion.service';
+import { ModalConfirmacionComponent } from '../../modals/modal-confirmacion/modal-confirmacion.component';
 
 @Component({
   selector: 'app-adm-medicamentos',
@@ -19,7 +21,8 @@ export class AdmMedicamentosComponent implements OnInit {
     private dialog: MatDialog, 
     private route: ActivatedRoute, 
     private snackBar: MatSnackBar,
-    private medicamentosService: MedicamentosService
+    private medicamentosService: MedicamentosService,
+    private administracionService: AdministracionService
   ) { }
 
   ngOnInit() {
@@ -31,9 +34,9 @@ export class AdmMedicamentosComponent implements OnInit {
   }
 
   getAL(id){
-    this.medicamentosService.getAdmList(id)
+    this.administracionService.getList(id)
       .subscribe(resp => {
-        this.listaAdmMed = resp.adm_medicamentos;
+        this.listaAdmMed = resp.listaadministracion;
         this.loading = false;
       },
       error => error
@@ -55,13 +58,40 @@ export class AdmMedicamentosComponent implements OnInit {
   }
 
   insertAdmMed(data){
-    this.medicamentosService.put(data)
+    this.medicamentosService.putAdm(data)
       .subscribe(resp => {
-        this.snackBar.open('Administración de medicamentos ingresada correctamente!',"Ok",{duration: 2000});
+        this.snackBar.open('Horario de administración de medicamentos ingresado correctamente!',"Ok",{duration: 2000});
         this.getAL(this.pacienteId);
       },
       error => error
     )
+  }
+
+  confirmation(id){
+    this.dialog.open(ModalConfirmacionComponent)
+    .afterClosed()
+    .subscribe(resp => {
+      if(resp) {
+        this.checkMedicamento(id);
+      }
+    });
+  }
+
+  checkMedicamento(id){ 
+    let data: Object = {user_id: 0, hi_id: 0};
+    data['user_id'] = parseInt(localStorage.getItem('user_id'));
+    data['hi_id'] = parseInt(id);
+    this.insertMedicamento(data);
+  }
+
+  insertMedicamento(data){
+    this.administracionService.putRegAdm(data)
+    .subscribe(resp => {
+      this.snackBar.open('Administración de medicamentos registrada correctamente!',"Ok",{duration: 2000});
+      this.getAL(this.pacienteId);
+    },
+  error => error
+  )
   }
 
 }

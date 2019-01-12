@@ -47,6 +47,8 @@ import { ModalEvolucionComponent } from './components/modals/modal-evolucion/mod
 import { ModalPacienteComponent } from './components/modals/modal-paciente/modal-paciente.component';
 import { ModalUsuarioComponent } from './components/modals/modal-usuario/modal-usuario.component';
 import { ModalAlertasComponent } from './components/modals/modal-alertas/modal-alertas.component';
+import { ModalAdmMedComponent } from './components/modals/modal-adm-med/modal-adm-med.component';
+import { ModalConfirmacionComponent } from './components/modals/modal-confirmacion/modal-confirmacion.component';
 
 import { PacienteService } from './services/paciente.service';
 import { SignosVitalesService } from './services/signos-vitales.service';
@@ -55,7 +57,6 @@ import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UsuarioService } from './services/usuario.service';
 import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
-import { ModalAdmMedComponent } from './components/modals/modal-adm-med/modal-adm-med.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -87,7 +88,8 @@ const routes: Routes = [
     ListaUsuariosComponent,
     ModalUsuarioComponent,
     ModalAlertasComponent,
-    ModalAdmMedComponent
+    ModalAdmMedComponent,
+    ModalConfirmacionComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -96,7 +98,8 @@ const routes: Routes = [
     ModalEvolucionComponent,
     ModalPacienteComponent,
     ModalUsuarioComponent,
-    ModalAlertasComponent
+    ModalAlertasComponent,
+    ModalConfirmacionComponent
   ],
   imports: [
     BrowserModule,
