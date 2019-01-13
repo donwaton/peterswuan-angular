@@ -3,17 +3,25 @@
   <form [formGroup]="formEvolucion">
     <mat-form-field class="p100" appearance="outline">
       <mat-label>Información relevante referida:</mat-label> 
-      <textarea matInput formControlName="ep_info_rel_ref" required></textarea>
+      <textarea matInput formControlName="ep_info_rel_ref"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field class="p100" appearance="outline">
       <mat-label>Destaca al examén físico:</mat-label> 
-      <textarea matInput formControlName="ep_examen_fisico" required></textarea>
+      <textarea matInput formControlName="ep_examen_fisico"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field class="p100" appearance="outline">
       <mat-label>Evolución</mat-label>
       <textarea matInput formControlName="ep_evolucion" required></textarea>
+    </mat-form-field>
+    <mat-form-field class="p100" appearance="outline">
+      <mat-label>Intervenciones</mat-label>
+      <textarea matInput formControlName="ep_intervencion"></textarea>
+    </mat-form-field>
+    <mat-form-field class="p100" appearance="outline">
+      <mat-label>Procedimientos</mat-label>
+      <textarea matInput formControlName="ep_procedimiento"></textarea>
     </mat-form-field>
     <br>
     <button mat-raised-button mat-dialog-close>Cancelar</button>

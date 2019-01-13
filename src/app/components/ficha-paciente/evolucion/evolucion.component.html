@@ -10,11 +10,25 @@
             {{ evolucion.tipousuario_nombre }}: {{ evolucion.user_names }}
         </mat-panel-description>
       </mat-expansion-panel-header>
-        <b>Información relevante referida:</b><br>
-        <pre>{{ evolucion.ep_info_rel_ref }}</pre>
-        <b>Destaca al examén físico:</b><br>
-        <pre>{{ evolucion.ep_examen_fisico }}</pre>
-        <b>Evolución:</b><br>
-        <pre>{{ evolucion.ep_evolucion }}</pre>
+        <div *ngIf="evolucion.ep_info_rel_ref">
+          <b>Información relevante referida:</b><br>
+          <pre>{{ evolucion.ep_info_rel_ref }}</pre>
+        </div>
+        <div *ngIf="evolucion.ep_examen_fisico">
+          <b>Destaca al examén físico:</b><br>
+          <pre>{{ evolucion.ep_examen_fisico }}</pre>
+        </div>
+        <div *ngIf="evolucion.ep_evolucion">
+          <b>Evolución:</b><br>
+          <pre>{{ evolucion.ep_evolucion }}</pre>
+        </div> 
+        <div *ngIf="evolucion.ep_intervencion">
+          <b>Intervenciones:</b><br>
+          <pre>{{ evolucion.ep_intervencion }}</pre>
+        </div>
+        <div *ngIf="evolucion.ep_procedimiento">
+          <b>Procedimientos:</b><br>
+          <pre>{{ evolucion.ep_procedimiento }}</pre>
+        </div>
     </mat-expansion-panel>
   </mat-accordion>

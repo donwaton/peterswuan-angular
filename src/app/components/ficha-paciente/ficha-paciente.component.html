@@ -1,16 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <app-alertas></app-alertas>
     </div>
     <div class="col-sm-5">
       <app-datos-personales></app-datos-personales>
+      <app-alertas></app-alertas>
       <app-signos-vitales></app-signos-vitales>
-      <app-calendario></app-calendario>
+      <app-calendario *ngIf="false"></app-calendario>
     </div>
     <div class="col-sm-7">
-      <app-adm-medicamentos></app-adm-medicamentos>
       <app-evolucion></app-evolucion>
+      <app-adm-medicamentos></app-adm-medicamentos>
     </div>
   </div>
 </div>

@@ -57,6 +57,7 @@ import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UsuarioService } from './services/usuario.service';
 import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
+import { ModalProtocolosComponent } from './components/modals/modal-protocolos/modal-protocolos.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -89,7 +90,8 @@ const routes: Routes = [
     ModalUsuarioComponent,
     ModalAlertasComponent,
     ModalAdmMedComponent,
-    ModalConfirmacionComponent
+    ModalConfirmacionComponent,
+    ModalProtocolosComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -99,7 +101,8 @@ const routes: Routes = [
     ModalPacienteComponent,
     ModalUsuarioComponent,
     ModalAlertasComponent,
-    ModalConfirmacionComponent
+    ModalConfirmacionComponent,
+    ModalProtocolosComponent
   ],
   imports: [
     BrowserModule,

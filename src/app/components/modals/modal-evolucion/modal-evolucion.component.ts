@@ -11,7 +11,9 @@ export class ModalEvolucionComponent implements OnInit {
   formEvolucion = new FormGroup({
     ep_evolucion : new FormControl(),
     ep_info_rel_ref: new FormControl(),
-    ep_examen_fisico: new FormControl()
+    ep_examen_fisico: new FormControl(),
+    ep_intervencion: new FormControl(),
+    ep_procedimiento: new FormControl()
   });
 
   constructor() { }

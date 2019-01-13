@@ -1,6 +1,8 @@
 <mat-card class="mt-2">
-    <mat-card-title (click)="openDialog()">Signos vitales</mat-card-title>
-  <mat-card-subtitle (click)="view24h()">Últimas 24hrs</mat-card-subtitle>
+  <mat-card-title>
+    <span (click)="openDialog()">Signos vitales </span>
+    <span (click)="view24h()" class="subtitle">Últimas 24hrs</span>
+  </mat-card-title>
   <mat-card-content *ngIf="signosVitales">
     <div class="row">
       <div class="col-sm-3 signos-vitales" matTooltip="Temperatura">

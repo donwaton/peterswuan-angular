@@ -6,7 +6,7 @@
   <table class="table table-light table-sm">
     <thead>
       <tr>
-        <th></th>
+        <!-- <th></th> -->
         <th scope="col">Hora</th>
         <th scope="col">Medicamento</th>
         <th scope="col">Via</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let admMed of listaAdmMed">
-        <td><mat-checkbox (click)="confirmation(admMed.hi_id)"></mat-checkbox></td>
+        <!-- <td><mat-checkbox (click)="confirmation(admMed.hi_id)"></mat-checkbox></td> -->
         <td>{{ admMed.hi_hora}}</td>
         <td>{{ admMed.insumo_nombre}}</td>
         <td>{{ admMed.pi_via_adm}}</td>
