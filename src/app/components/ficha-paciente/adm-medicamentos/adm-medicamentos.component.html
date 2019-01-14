@@ -1,26 +1,36 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
-<button mat-raised-button color="primary" (click)="newAdmMed()" class="mt-2">Agregar medicamento</button>
+<mat-accordion>
+  <mat-expansion-panel class="mt-2">
+    <mat-expansion-panel-header>
+      <mat-panel-title style="width:0px;">
+        Medicamentos
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-<div class="container-fluid mt-2" *ngIf="listaAdmMed!=''">
-  <table class="table table-light table-sm">
-    <thead>
-      <tr>
-        <!-- <th></th> -->
-        <th scope="col">Hora</th>
-        <th scope="col">Medicamento</th>
-        <th scope="col">Via</th>
-        <th scope="col">Posología</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let admMed of listaAdmMed">
-        <!-- <td><mat-checkbox (click)="confirmation(admMed.hi_id)"></mat-checkbox></td> -->
-        <td>{{ admMed.hi_hora}}</td>
-        <td>{{ admMed.insumo_nombre}}</td>
-        <td>{{ admMed.pi_via_adm}}</td>
-        <td>{{ admMed.pi_posologia}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <button mat-raised-button color="primary" (click)="newAdmMed()" class="mt-2">Agregar medicamento</button>
+    <div class="container-fluid mt-2" *ngIf="listaAdmMed!=''">
+      <table class="table table-light table-sm">
+        <thead>
+          <tr>
+            <!-- <th></th> -->
+            <th scope="col">Hora</th>
+            <th scope="col">Medicamento</th>
+            <th scope="col">Via</th>
+            <th scope="col">Posología</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admMed of listaAdmMed">
+            <!-- <td><mat-checkbox (click)="confirmation(admMed.hi_id)"></mat-checkbox></td> -->
+            <td>{{ admMed.hi_hora}}</td>
+            <td>{{ admMed.insumo_nombre}}</td>
+            <td>{{ admMed.pi_via_adm}}</td>
+            <td>{{ admMed.pi_posologia}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>

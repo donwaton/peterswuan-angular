@@ -1,0 +1,15 @@
+<div matDialogTitle>Ingresar Invasivo</div>
+<mat-progress-bar mode="indeterminate" *ngIf="!listaInsumos"></mat-progress-bar>
+<div class="container" *ngIf="listaInsumos">
+  <form [formGroup]="formInvasivo">
+    <mat-form-field class="p100">
+      <mat-select placeholder="Invasivo" formControlName="insumo_id" required>
+        <mat-option *ngFor="let insumo of listaInsumos" [value]="insumo.insumo_id">
+          {{ insumo.insumo_nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formInvasivo.value" [disabled]="!formInvasivo.valid" class="btn-submit">Ingresar</button>
+  </form>
+</div>

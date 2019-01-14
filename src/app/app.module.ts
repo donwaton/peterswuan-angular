@@ -41,6 +41,9 @@ import { CalendarioComponent } from './components/ficha-paciente/calendario/cale
 import { EvolucionComponent } from './components/ficha-paciente/evolucion/evolucion.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
+import { InvasivosComponent } from './components/ficha-paciente/invasivos/invasivos.component';
+
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
 import { ModalEvolucionComponent } from './components/modals/modal-evolucion/modal-evolucion.component';
@@ -49,6 +52,8 @@ import { ModalUsuarioComponent } from './components/modals/modal-usuario/modal-u
 import { ModalAlertasComponent } from './components/modals/modal-alertas/modal-alertas.component';
 import { ModalAdmMedComponent } from './components/modals/modal-adm-med/modal-adm-med.component';
 import { ModalConfirmacionComponent } from './components/modals/modal-confirmacion/modal-confirmacion.component';
+import { ModalProtocolosComponent } from './components/modals/modal-protocolos/modal-protocolos.component';
+import { ModalInvasivosComponent } from './components/modals/modal-invasivos/modal-invasivos.component';
 
 import { PacienteService } from './services/paciente.service';
 import { SignosVitalesService } from './services/signos-vitales.service';
@@ -56,8 +61,11 @@ import { EvolucionService } from './services/evolucion.service';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UsuarioService } from './services/usuario.service';
-import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
-import { ModalProtocolosComponent } from './components/modals/modal-protocolos/modal-protocolos.component';
+import { AdministracionService } from './services/administracion.service';
+import { AlertasService } from './services/alertas.service';
+import { AntropometricosService } from './services/antropometricos.service';
+import { InsumosService } from './services/insumos.service';
+import { MedicamentosService } from './services/medicamentos.service';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -82,16 +90,18 @@ const routes: Routes = [
     CalendarioComponent,
     NavbarComponent,
     AdmMedicamentosComponent,
+    ListaUsuariosComponent,
+    InvasivosComponent,
     ModalSignosVitalesComponent,
     ModalSignosVitales24hComponent,
     ModalEvolucionComponent,
     ModalPacienteComponent,
-    ListaUsuariosComponent,
     ModalUsuarioComponent,
     ModalAlertasComponent,
     ModalAdmMedComponent,
     ModalConfirmacionComponent,
-    ModalProtocolosComponent
+    ModalProtocolosComponent,
+    ModalInvasivosComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -102,7 +112,8 @@ const routes: Routes = [
     ModalUsuarioComponent,
     ModalAlertasComponent,
     ModalConfirmacionComponent,
-    ModalProtocolosComponent
+    ModalProtocolosComponent,
+    ModalInvasivosComponent
   ],
   imports: [
     BrowserModule,
@@ -135,10 +146,16 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
-    PacienteService,
-    SignosVitalesService,
+    AdministracionService,
+    AlertasService,
+    AntropometricosService,
+    EvolucionService,
+    InsumosService,
     EvolucionService,
     LoginService,
+    MedicamentosService,
+    PacienteService,
+    SignosVitalesService,
     UsuarioService,
     AuthGuard
   ],
