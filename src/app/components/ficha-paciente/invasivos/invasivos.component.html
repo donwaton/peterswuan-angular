@@ -8,21 +8,26 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     
-    <button mat-raised-button color="primary" (click)="newInvasivo()" class="mt-2">Agregar invasivo</button>
-    <div class="container-fluid mt-2" *ngIf="listaInvasivos!=''">
-      <table class="table table-light table-sm">
+    <button mat-flat-button color="primary" (click)="newInvasivo()" class="mt-2">Agregar invasivo</button>
+    <div class="p100 mt-2" *ngIf="listaInvasivos!=''">
+      <table class="table table-light table-sm table-hover">
         <thead>
           <tr>
-            <th scope="col">Medicamento</th>
-            <th scope="col">Último cambio</th>
+            <th scope="col">Invasivo</th>
+            <th scope="col">Indicación de cambio</th>
+            <th scope="col">Uso</th>
             <th scope="col">Cambio programado</th>
+            <th scope="col">Responsable</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let invasivo of listaInvasivos">
-            <td>{{ invasivo.insumo_nombre}}</td>
-            <td>{{ invasivo.fecha_cambio | date:'dd/MM/yy HH:mm'}}</td>
-            <td>{{ invasivo.fecha_vencimiento | date:'dd/MM/yy'}}</td>
+          <tr *ngFor="let invasivo of listaInvasivos" (click)="cambioInvasivo()">
+            <td>{{ invasivo.insumo_nombre }}</td>
+            <td>{{ invasivo.pi_posologia }}</td>
+            <td *ngIf="invasivo.fecha_inicio">{{ invasivo.fecha_inicio | amDifference: today :'days' : false }} días</td>
+            <td *ngIf="invasivo.fecha_vencimiento">{{ invasivo.fecha_vencimiento | date:'dd/MM/yy' }}</td>
+            <td *ngIf="invasivo.usuario_resp">{{ invasivo.usuario_resp }}</td>
+            <td colspan="3" *ngIf="!invasivo.usuario_resp">Sin información</td>
           </tr>
         </tbody>
       </table>

@@ -1,53 +1,88 @@
-<mat-accordion *ngIf="paciente" >
+<mat-accordion *ngIf="paciente">
   <mat-expansion-panel class="mt-2">
-    <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="80px">
-      <mat-panel-title>
-        <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño">
-      </mat-panel-title>
-      <mat-panel-description class="title-avatar">
-          {{ paciente.paciente_nombre }} <br>
-          <div *ngIf="antropometricos">
-            <p><b>Peso:</b> 
-              {{ antropometricos.pa_peso }} Kg
-              <b>Talla:</b> 
-              {{ antropometricos.pa_talla }} cm
-              <b>Circunferencia Craneo:</b> 
-              {{ antropometricos.pa_circ_craneo }} cm</p>
+    <mat-expansion-panel-header collapsedHeight="120px" expandedHeight="120px">
+      <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño">
+      <p class="title-avatar">{{ paciente.paciente_nombre }}</p>
+      <div class="datos-sub2 row">
+        <div class="col-sm-5">
+          <b>Ficha Nº:</b> {{ paciente.paciente_id }}
+        </div>
+        <div class="col-sm-7">
+          <b>RUT:</b> {{ paciente.paciente_rut }}
+        </div>
+      </div>
+      <div *ngIf="antropometricos">
+        <div class="datos-sub row">
+          <div class="col-sm-3 signos-vitales" matTooltip="Peso">
+            <img src="../../../../assets/farma-icons/weight.png" alt="temp" class="farma-icon">
+            <b>{{ antropometricos.pa_peso }}</b>
+            <span> Kg</span>
           </div>
-      </mat-panel-description>
+          <div class="col-sm-3  signos-vitales" matTooltip="Talla">
+            <img src="../../../../assets/farma-icons/height.png" alt="FR" class="farma-icon">
+            <b>{{ antropometricos.pa_talla }}</b>
+            <span> cms</span>
+          </div>
+          <div class="col-sm-3  signos-vitales" matTooltip="Circunferencia Craneo">
+            <img src="../../../../assets/farma-icons/head.png" alt="FC" class="farma-icon">
+            <b>{{ antropometricos.pa_circ_craneo }}</b>
+            <span> cms</span>
+          </div>
+          <div class="col-sm-3  signos-vitales" matTooltip="Grupo sanguíneo">
+            <img src="../../../../assets/farma-icons/heart-rate.png" alt="FC" class="farma-icon">
+            <b>{{ paciente.paciente_grupo_sang }}</b>
+          </div>
+        </div>
+      </div>
     </mat-expansion-panel-header>
 
-
     <mat-tab-group>
-        <mat-tab label="Paciente"> 
-          <p><b>Ficha Nº:</b> {{ paciente.paciente_id }}</p>
-          <p><b>RUT:</b> {{ paciente.paciente_rut }}</p>
-          <p><b>Sexo:</b> {{ paciente.paciente_sexo }}</p>
-          <p><b>Fecha Nacimiento:</b>{{ paciente.paciente_fecha_nac }}</p>
-          <p><b>Diagnóstico:</b> {{ paciente.paciente_diagnostico }}</p>
-          <p><b>Alergias:</b> {{ paciente.paciente_alergias }}</p>
-          <p><b>Complejidad:</b> {{ paciente.paciente_complejidad }}</p>
-          <p><b>Fecha de ingreso:</b> {{ paciente.paciente_fecha_ingreso }}</p>
-          <p><b>Previsión:</b> {{ paciente.paciente_prevision }}</p>
-          <p><b>Grupo sanguíneo:</b> {{ paciente.paciente_grupo_sang }}</p>
-        </mat-tab>
-        <mat-tab label="Administrativos">
-          <p><b>Representante legal:</b> {{ paciente.contacto_nombre1 }}</p>
-          <p><b>Ocupación:</b> {{ paciente.paciente_ocupacion }}</p>
-          <p><b>Email:</b> {{ paciente.paciente_mail }}</p>
-          <p><b>Teléfono:</b> {{ paciente.contacto_tel1 }}</p>
-          <p><b>Domicilio:</b> {{ paciente.paciente_domicilio }}</p>
-          <p><b>Unidad de traslado móvil:</b> {{ paciente.paciente_utm }}</p>
-          <p><b>Nº Socio:</b> {{ paciente.paciente_utm_num }}</p>
-          <p><b>Teléfono:</b> {{ paciente.paciente_utm_fono }}</p>
-        </mat-tab>
-        <mat-tab label="Staff"> 
-          <p><b>Médico Tratante:</b> {{ paciente.medico_nombre }}</p>
-          <p><b>Enfermera:</b> {{ paciente.enfermera_nombre }}</p>
-          <p><b>KTR:</b> {{ paciente.kine_r_nombre }}</p>
-          <p><b>KTM:</b> {{ paciente.kine_m_nombre }}</p>
-          <p><b>Fonoaudiólogo:</b> {{ paciente.fono_nombre }}</p>
-        </mat-tab>
-      </mat-tab-group>
+      <mat-tab label="Paciente">
+        <p>
+          <b>Sexo:</b> {{ paciente.paciente_sexo }}</p>
+        <p>
+          <b>Fecha Nacimiento:</b>{{ paciente.paciente_fecha_nac | date:'dd/MM/yyyy' }}</p>
+        <p>
+          <b>Diagnóstico:</b> {{ paciente.paciente_diagnostico }}</p>
+        <p>
+          <b>Alergias:</b> {{ paciente.paciente_alergias }}</p>
+        <p>
+          <b>Complejidad:</b> {{ paciente.paciente_complejidad }}</p>
+        <p>
+          <b>Fecha de ingreso:</b> {{ paciente.paciente_fecha_ingreso | date:'dd/MM/yyyy' }}</p>
+        <p>
+          <b>Previsión:</b> {{ paciente.paciente_prevision }}</p>
+      </mat-tab>
+      <mat-tab label="Administrativos">
+        <p>
+          <b>Representante legal:</b> {{ paciente.contacto_nombre1 }}</p>
+        <p>
+          <b>Ocupación:</b> {{ paciente.paciente_ocupacion }}</p>
+        <p>
+          <b>Email:</b> {{ paciente.paciente_mail }}</p>
+        <p>
+          <b>Teléfono:</b> {{ paciente.contacto_tel1 }}</p>
+        <p>
+          <b>Domicilio:</b> {{ paciente.paciente_domicilio }}</p>
+        <p>
+          <b>Unidad de traslado móvil:</b> {{ paciente.paciente_utm }}</p>
+        <p>
+          <b>Nº Socio:</b> {{ paciente.paciente_utm_num }}</p>
+        <p>
+          <b>Teléfono:</b> {{ paciente.paciente_utm_fono }}</p>
+      </mat-tab>
+      <mat-tab label="Staff">
+        <p>
+          <b>Médico Tratante:</b> {{ paciente.medico_nombre }}</p>
+        <p>
+          <b>Enfermera:</b> {{ paciente.enfermera_nombre }}</p>
+        <p>
+          <b>KTR:</b> {{ paciente.kine_r_nombre }}</p>
+        <p>
+          <b>KTM:</b> {{ paciente.kine_m_nombre }}</p>
+        <p>
+          <b>Fonoaudiólogo:</b> {{ paciente.fono_nombre }}</p>
+      </mat-tab>
+    </mat-tab-group>
   </mat-expansion-panel>
 </mat-accordion>

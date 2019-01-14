@@ -37,7 +37,6 @@ export class InvasivosComponent implements OnInit {
     this.invasivosService.getList(id)
       .subscribe(resp=>{
         this.listaInvasivos = resp.invasivos;
-        console.log(resp);
       }, error => error)
   }
 
@@ -49,7 +48,6 @@ export class InvasivosComponent implements OnInit {
     .subscribe(resp => {
       if(resp) {
         resp['paciente_id'] = parseInt(this.pacienteId);
-        console.log(resp);
         this.insertInsumo(resp);
       }
     });
@@ -63,6 +61,10 @@ export class InvasivosComponent implements OnInit {
     },
     error => error
   )
+  }
+
+  cambioInvasivo(){
+    console.log('Cambio!');
   }
 
 }

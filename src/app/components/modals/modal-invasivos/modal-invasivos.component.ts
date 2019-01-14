@@ -12,7 +12,9 @@ export class ModalInvasivosComponent implements OnInit {
   listaInsumos: any;
   
   formInvasivo = new FormGroup({
-    insumo_id: new FormControl()
+    insumo_id: new FormControl(),
+    pi_posologia: new FormControl()
+
   });
 
   constructor(private insumosServices: InsumosService) { }

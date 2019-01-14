@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { MomentModule } from 'ngx-moment';
 
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -66,6 +67,7 @@ import { AlertasService } from './services/alertas.service';
 import { AntropometricosService } from './services/antropometricos.service';
 import { InsumosService } from './services/insumos.service';
 import { MedicamentosService } from './services/medicamentos.service';
+import { ModalCambioInvasivoComponent } from './components/modals/modal-cambio-invasivo/modal-cambio-invasivo.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -101,7 +103,8 @@ const routes: Routes = [
     ModalAdmMedComponent,
     ModalConfirmacionComponent,
     ModalProtocolosComponent,
-    ModalInvasivosComponent
+    ModalInvasivosComponent,
+    ModalCambioInvasivoComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -142,6 +145,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatMomentDateModule,
     MatAutocompleteModule,
+    MomentModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],

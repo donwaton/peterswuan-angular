@@ -1,0 +1,12 @@
+.table-light, .table-light>td, .table-light>th {
+    background-color: #fdfdfe;
+    border: 1px solid #c9c9c9;
+    color: #1f296f;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.table-light thead {
+    color: #ffffff;
+    background-color: #1544aa;
+}

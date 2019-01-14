@@ -9,6 +9,10 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <input matInput placeholder="Indicación de cambio" formControlName="pi_posologia" >
+    </mat-form-field>
     <button mat-raised-button mat-dialog-close>Cancelar</button>
     <button mat-raised-button color="primary" [mat-dialog-close]="formInvasivo.value" [disabled]="!formInvasivo.valid" class="btn-submit">Ingresar</button>
   </form>
