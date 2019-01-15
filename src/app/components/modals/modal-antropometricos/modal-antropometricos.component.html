@@ -1,0 +1,28 @@
+<div matDialogTitle>Signos Vitales</div>
+<div class="container">
+  <form [formGroup]="formAntropo">
+    <mat-form-field class="p100">
+      <img matPrefix src="../../../../assets/farma-icons/weight.png" alt="Peso" class="farma-icon">
+      <span matPrefix>&nbsp;&nbsp;</span>
+      <input type="number" matInput placeholder="Peso" formControlName="pa_peso" required>
+      <span matSuffix>&nbsp;Kg</span>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <img matPrefix src="../../../../assets/farma-icons/height.png" alt="Talla" class="farma-icon">
+      <span matPrefix>&nbsp;&nbsp;</span>
+      <input type="number" matInput placeholder="Talla" formControlName="pa_talla" required>
+      <span matSuffix>&nbsp;cms</span>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="p100">
+      <img matPrefix src="../../../../assets/farma-icons/head.png" alt="Circunferencia" class="farma-icon">
+      <span matPrefix>&nbsp;&nbsp;</span>
+      <input type="number" matInput placeholder="Circunferencia Craneo" formControlName="pa_circ_craneo" required>
+      <span matSuffix>&nbsp;cms</span>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formAntropo.value" [disabled]="!formAntropo.valid" class="btn-submit">Registrar</button>
+  </form>
+</div>

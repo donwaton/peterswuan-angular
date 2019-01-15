@@ -1,4 +1,5 @@
-<div matDialogTitle>Nuevo paciente</div>
+<div matDialogTitle *ngIf="!paciente">Nuevo paciente</div>
+<div matDialogTitle *ngIf="paciente">Actualizar paciente</div>
 <mat-vertical-stepper #stepper>
   <mat-step [stepControl]="formPaciente">
     <form [formGroup]="formPaciente">
@@ -6,12 +7,12 @@
       <div class="row">
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Rut" formControlName="paciente_rut" required>
+            <input matInput placeholder="Rut" formControlName="paciente_rut">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Nombre" formControlName="paciente_nombre" required>
+            <input matInput placeholder="Nombre" formControlName="paciente_nombre">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
@@ -21,17 +22,17 @@
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Grupo Sanguíneo" formControlName="paciente_grupo_sang" required>
+            <input matInput placeholder="Grupo Sanguíneo" formControlName="paciente_grupo_sang">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Diagnóstico" formControlName="paciente_diagnostico" required>
+            <input matInput placeholder="Diagnóstico" formControlName="paciente_diagnostico">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Complejidad" formControlName="paciente_complejidad" required>
+            <input matInput placeholder="Complejidad" formControlName="paciente_complejidad">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
@@ -43,12 +44,12 @@
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Previsión" formControlName="paciente_prevision" required>
+            <input matInput placeholder="Previsión" formControlName="paciente_prevision">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <mat-select placeholder="Sexo" formControlName="paciente_sexo" required>
+            <mat-select placeholder="Sexo" formControlName="paciente_sexo">
                 <mat-option value="Masculino">Masculino</mat-option>
                 <mat-option value="Femenino">Femenino</mat-option>
               </mat-select>
@@ -73,29 +74,29 @@
       <div class="row">
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Representante legal" formControlName="contacto_nombre1" required>
+            <input matInput placeholder="Representante legal" formControlName="contacto_nombre1">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Ocupación" formControlName="paciente_ocupacion" required>
+            <input matInput placeholder="Ocupación" formControlName="paciente_ocupacion">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Telefono" formControlName="contacto_tel1" required>
+            <input matInput placeholder="Telefono" formControlName="contacto_tel1">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput type="email" placeholder="Email" formControlName="paciente_mail" required>
+            <input matInput type="email" placeholder="Email" formControlName="paciente_mail">
           </mat-form-field>
         </div>
         <div class="col-sm-4">
           <mat-form-field class="p100">
-            <input matInput placeholder="Domicilio" formControlName="paciente_domicilio" required>
+            <input matInput placeholder="Domicilio" formControlName="paciente_domicilio">
           </mat-form-field>
         </div>
       </div>
@@ -119,7 +120,7 @@
 
       <div>
         <button mat-raised-button matStepperPrevious>Anterior</button>
-        <button mat-raised-button matStepperNext>Siguiente</button>
+        <button mat-raised-button matStepperNext class="btn-submit">Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -129,36 +130,37 @@
     <div class="row">
       <div class="col-sm-4">
         <mat-form-field>
-          <input matInput placeholder="Médico:" formControlName="medico_nombre" required>
+          <input matInput placeholder="Médico:" formControlName="medico_nombre">
         </mat-form-field>
       </div>
       <div class="col-sm-4">
         <mat-form-field>
-          <input matInput placeholder="Enfermera:" formControlName="enfermera_nombre" required>
+          <input matInput placeholder="Enfermera:" formControlName="enfermera_nombre">
         </mat-form-field>
       </div>
       <div class="col-sm-4">
         <mat-form-field>
-          <input matInput placeholder="KTR:" formControlName="kine_r_nombre" required>
+          <input matInput placeholder="KTR:" formControlName="kine_r_nombre">
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-4">
         <mat-form-field>
-          <input matInput placeholder="KTM:" formControlName="kine_m_nombre" required>
+          <input matInput placeholder="KTM:" formControlName="kine_m_nombre">
         </mat-form-field>
       </div>
       <div class="col-sm-4">
         <mat-form-field>
-          <input matInput placeholder="Fonoaudiólogo" formControlName="fono_nombre" required>
+          <input matInput placeholder="Fonoaudiólogo" formControlName="fono_nombre">
         </mat-form-field>
       </div>
     </div>
     </form>
-    <div>
-      <button mat-raised-button (click)="stepper.reset()">Reset</button>
-      <button mat-raised-button color="primary" [mat-dialog-close]="formPaciente.value" [disabled]="!formPaciente.valid" class="btn-submit">Registrar</button>
+    <div> 
+      <button mat-raised-button matStepperPrevious>Anterior</button>
+      <button *ngIf="!paciente" mat-raised-button color="primary" [mat-dialog-close]="formPaciente.value" [disabled]="!formPaciente.valid" class="btn-submit">Registrar</button>
+      <button *ngIf="paciente" mat-raised-button color="primary" [mat-dialog-close]="formPaciente.value" [disabled]="!formPaciente.valid" class="btn-submit">Actualizar</button>
     </div>
   </mat-step>
 </mat-vertical-stepper>

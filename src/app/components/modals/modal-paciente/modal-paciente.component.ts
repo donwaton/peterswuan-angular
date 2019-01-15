@@ -1,12 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PacienteService } from '../../../services/paciente.service';
+
+export interface DatosPaciente {
+  contacto_nombre1: string;
+  contacto_nombre2: string;
+  contacto_tel1: string;
+  contacto_tel2: string;
+  enfermera_nombre: string;
+  fono_nombre: string;
+  kine_m_nombre: string;
+  kine_r_nombre: string;
+  medico_nombre: string;
+  paciente_alergias: string;
+  paciente_complejidad: string;
+  paciente_diagnostico: string;
+  paciente_dom_map: string;
+  paciente_domicilio: string;
+  paciente_fecha_ingreso: Date;
+  paciente_fecha_nac: Date;
+  paciente_grupo_sang: string;
+  paciente_id: number;
+  paciente_mail: string;
+  paciente_nombre: string;
+  paciente_ocupacion: string;
+  paciente_prevision: string;
+  paciente_rut: string;
+  paciente_sexo: string;
+  paciente_utm: string;
+  paciente_utm_fono: string;
+  paciente_utm_num: string;
+}
+
 
 @Component({
   selector: 'app-modal-paciente',
   templateUrl: './modal-paciente.component.html',
   styleUrls: ['./modal-paciente.component.css']
 })
-export class ModalPacienteComponent {
+export class ModalPacienteComponent implements OnInit{
+  paciente: DatosPaciente;
 
   formPaciente = new FormGroup({
     paciente_rut : new FormControl(),
@@ -36,6 +70,50 @@ export class ModalPacienteComponent {
     fono_nombre : new FormControl()
   });
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private pacienteService: PacienteService
+  ) { }
+
+  ngOnInit(){
+    if (this.data) {
+      if (this.data.pacienteId) {
+        this.pacienteService.getPaciente(this.data.pacienteId)
+          .subscribe(resp => {
+            this.paciente = resp.paciente[0];
+            this.formPaciente = new FormGroup({
+              paciente_rut: new FormControl(this.paciente.paciente_rut),
+              paciente_nombre: new FormControl(this.paciente.paciente_nombre),
+              paciente_alergias: new FormControl(this.paciente.paciente_alergias),
+              paciente_diagnostico: new FormControl(this.paciente.paciente_diagnostico),
+              paciente_complejidad : new FormControl(this.paciente.paciente_complejidad),
+              paciente_fecha_ingreso : new FormControl(this.paciente.paciente_fecha_ingreso),
+              paciente_prevision : new FormControl(this.paciente.paciente_prevision),
+              paciente_sexo : new FormControl(this.paciente.paciente_sexo),
+              paciente_grupo_sang: new FormControl(this.paciente.paciente_grupo_sang),
+              paciente_fecha_nac : new FormControl(this.paciente.paciente_fecha_nac),
+          
+              paciente_domicilio : new FormControl(this.paciente.paciente_domicilio),
+              contacto_nombre1 : new FormControl(this.paciente.contacto_nombre1),
+              contacto_tel1 : new FormControl(this.paciente.contacto_tel1),
+              paciente_mail : new FormControl(this.paciente.paciente_mail),
+              paciente_ocupacion : new FormControl(this.paciente.paciente_ocupacion),
+              paciente_utm_num : new FormControl(this.paciente.paciente_utm_num),
+              paciente_utm : new FormControl(this.paciente.paciente_utm),
+              paciente_utm_fono : new FormControl(this.paciente.paciente_utm_fono),
+          
+              medico_nombre : new FormControl(this.paciente.medico_nombre),
+              enfermera_nombre : new FormControl(this.paciente.enfermera_nombre),
+              kine_r_nombre : new FormControl(this.paciente.kine_r_nombre),
+              kine_m_nombre : new FormControl(this.paciente.kine_m_nombre),
+              fono_nombre : new FormControl(this.paciente.fono_nombre)
+
+            })
+          },
+            error => error
+          )
+      }
+    }
+  }
 
 }

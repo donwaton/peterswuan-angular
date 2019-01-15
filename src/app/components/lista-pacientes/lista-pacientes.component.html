@@ -3,9 +3,13 @@
   <button mat-raised-button color="primary" (click)="openPaciente()" class="mt-2">Paciente nuevo</button>
   <div class="row">
     <div class="col-sm-4 mt-2" *ngFor="let paciente of listaPacientes">
-      <mat-card routerLink="/ficha-paciente/{{paciente.paciente_id}}">
+      <mat-card class="card-patient">
         <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño" class="img-avatar">
-        {{ paciente.paciente_nombre }}
+        <div class="title-avatar">{{ paciente.paciente_nombre }}</div>
+        <div class="datos-sub">
+            <img routerLink="/ficha-paciente/{{paciente.paciente_id}}" src="../../../../assets/farma-icons/file.png" alt="Ficha" class="farma-icon" matTooltip="Ficha del paciente">
+            <img (click)="editarPaciente(paciente.paciente_id)" src="../../../../assets/farma-icons/edit.png" alt="Ficha" class="farma-icon" matTooltip="Editar">
+        </div>
       </mat-card>
     </div>
   </div>

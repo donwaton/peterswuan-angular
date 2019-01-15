@@ -1,5 +1,42 @@
 .img-avatar{
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    border: 1px solid #a7a7a7;
+    margin-top: -52px;
+    margin-left: 0 px;
+}
+
+.title-avatar{
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 0 px;
+    font-size: 18px;
+    color: #102c5e;
+}
+
+.datos-sub2{
+    position: absolute;
+    margin-left: 56px;
+    margin-top: -21px;
+    font-size: 14px;
+    width:250px;
+}
+
+.datos-sub{
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 70px;
+}
+
+.card-patient{
+    height:100px;
+}
+
+.farma-icon {
+    height: 28px;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left:10px;
 }

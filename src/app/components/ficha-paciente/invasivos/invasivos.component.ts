@@ -6,6 +6,7 @@ import { ModalInvasivosComponent } from '../../modals/modal-invasivos/modal-inva
 import { InsumosService } from '../../../services/insumos.service';
 import { PacienteInsumoService } from '../../../services/paciente-insumo.service';
 import { InvasivoService } from '../../../services/invasivo.service';
+import { ModalCambioInvasivoComponent } from '../../modals/modal-cambio-invasivo/modal-cambio-invasivo.component';
 
 @Component({
   selector: 'app-invasivos',
@@ -14,11 +15,11 @@ import { InvasivoService } from '../../../services/invasivo.service';
 })
 export class InvasivosComponent implements OnInit {
   pacienteId: string;
-  listaInvasivos : any;
+  listaInvasivos: any;
 
   constructor(
-    private dialog: MatDialog, 
-    private route: ActivatedRoute, 
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private insumosService: InsumosService,
     private pacienteInsumosService: PacienteInsumoService,
@@ -27,44 +28,70 @@ export class InvasivosComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap
-    .subscribe(params=>{
-      this.pacienteId = params.get('id');
-      this.getInvasivos(this.pacienteId);
-    });
+      .subscribe(params => {
+        this.pacienteId = params.get('id');
+        this.getInvasivos(this.pacienteId);
+      });
   }
 
-  getInvasivos(id){
+  getInvasivos(id) {
     this.invasivosService.getList(id)
-      .subscribe(resp=>{
+      .subscribe(resp => {
         this.listaInvasivos = resp.invasivos;
       }, error => error)
   }
 
-  newInvasivo(){
+  newInvasivo() {
     this.dialog.open(ModalInvasivosComponent, {
       width: '800px'
     })
-    .afterClosed()
-    .subscribe(resp => {
-      if(resp) {
-        resp['paciente_id'] = parseInt(this.pacienteId);
-        this.insertInsumo(resp);
-      }
-    });
+      .afterClosed()
+      .subscribe(resp => {
+        if (resp) {
+          if (resp) {
+            resp['paciente_id'] = parseInt(this.pacienteId);
+            this.insertInsumo(resp);
+          }
+        }
+      });
   }
 
-  insertInsumo(data){
+  insertInsumo(data) {
     this.pacienteInsumosService.put(data)
-    .subscribe(resp => {
-      this.snackBar.open('Invasivo ingresado correctamente!',"Ok",{duration: 2000});
-      this.getInvasivos(this.pacienteId);
-    },
-    error => error
-  )
+      .subscribe(resp => {
+        this.snackBar.open('Invasivo ingresado correctamente!', "Ok", { duration: 2000 });
+        this.getInvasivos(this.pacienteId);
+      },
+        error => error
+      )
   }
 
-  cambioInvasivo(){
-    console.log('Cambio!');
+  cambioInvasivo(pi_id, id) {
+    this.dialog.open(ModalCambioInvasivoComponent, {
+      width: '800px'
+    })
+      .afterClosed()
+      .subscribe(resp => {
+        if (resp) {
+          if(id){
+            resp['invasivo_id'] = parseInt(id);
+          }
+          resp['pi_id'] = parseInt(pi_id);
+          resp['user_id'] = parseInt(localStorage.getItem('user_id'));
+          console.log(resp);
+          this.insertInvasivo(resp);
+        }
+      });
+  }
+
+  insertInvasivo(data) {
+    this.invasivosService.put(data)
+      .subscribe(resp=>{
+        console.log(resp);
+        this.snackBar.open('Cambio de invasivo ingresado correctamente!', "Ok", { duration: 2000 });
+        this.getInvasivos(this.pacienteId);
+      }, error => console.log(error)
+      )
   }
 
 }

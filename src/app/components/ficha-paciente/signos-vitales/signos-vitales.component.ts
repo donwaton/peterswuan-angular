@@ -16,34 +16,34 @@ export class SignosVitalesComponent implements OnInit {
   pacienteId: string;
 
   constructor(
-    private dialog: MatDialog, 
+    private dialog: MatDialog,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private signosVitalesService: SignosVitalesService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.route.paramMap
-    .subscribe(params=>{
-      this.pacienteId = params.get('id');
-      this.getSV(params.get('id'));
-    });
+      .subscribe(params => {
+        this.pacienteId = params.get('id');
+        this.getSV(params.get('id'));
+      });
   }
 
-  getSV(id){
+  getSV(id) {
     this.signosVitalesService.getSignosVitales(id)
       .subscribe(resp => {
         this.signosVitales = resp.signos_vitales
       },
-      error => error
-    )
+        error => error
+      )
   }
 
-  openDialog(){
+  openDialog() {
     this.dialog.open(ModalSignosVitalesComponent)
       .afterClosed()
       .subscribe(resp => {
-        if(resp) {
+        if (resp) {
           resp['paciente_id'] = parseInt(this.pacienteId);
           resp['user_id'] = parseInt(localStorage.getItem('user_id'));
           this.insertSV(resp);
@@ -51,20 +51,20 @@ export class SignosVitalesComponent implements OnInit {
       });
   }
 
-  view24h(){
-    this.dialog.open(ModalSignosVitales24hComponent,{
-      data: {pacienteId: this.pacienteId}
+  view24h() {
+    this.dialog.open(ModalSignosVitales24hComponent, {
+      data: { pacienteId: this.pacienteId }
     })
   }
 
-  insertSV(data){
+  insertSV(data) {
     this.signosVitalesService.insertSignosVitales(data)
       .subscribe(resp => {
-        this.snackBar.open('Signos vitales ingresados!',"Ok",{duration: 2000});
+        this.snackBar.open('Signos vitales ingresados!', "Ok", { duration: 2000 });
         this.signosVitales = data;
       },
-      error => error
-    )
+        error => error
+      )
   }
 
 }

@@ -55,6 +55,8 @@ import { ModalAdmMedComponent } from './components/modals/modal-adm-med/modal-ad
 import { ModalConfirmacionComponent } from './components/modals/modal-confirmacion/modal-confirmacion.component';
 import { ModalProtocolosComponent } from './components/modals/modal-protocolos/modal-protocolos.component';
 import { ModalInvasivosComponent } from './components/modals/modal-invasivos/modal-invasivos.component';
+import { ModalCambioInvasivoComponent } from './components/modals/modal-cambio-invasivo/modal-cambio-invasivo.component';
+import { ModalAntropometricosComponent } from './components/modals/modal-antropometricos/modal-antropometricos.component';
 
 import { PacienteService } from './services/paciente.service';
 import { SignosVitalesService } from './services/signos-vitales.service';
@@ -67,7 +69,6 @@ import { AlertasService } from './services/alertas.service';
 import { AntropometricosService } from './services/antropometricos.service';
 import { InsumosService } from './services/insumos.service';
 import { MedicamentosService } from './services/medicamentos.service';
-import { ModalCambioInvasivoComponent } from './components/modals/modal-cambio-invasivo/modal-cambio-invasivo.component';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -104,7 +105,8 @@ const routes: Routes = [
     ModalConfirmacionComponent,
     ModalProtocolosComponent,
     ModalInvasivosComponent,
-    ModalCambioInvasivoComponent
+    ModalCambioInvasivoComponent,
+    ModalAntropometricosComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -116,7 +118,9 @@ const routes: Routes = [
     ModalAlertasComponent,
     ModalConfirmacionComponent,
     ModalProtocolosComponent,
-    ModalInvasivosComponent
+    ModalInvasivosComponent,
+    ModalCambioInvasivoComponent,
+    ModalAntropometricosComponent
   ],
   imports: [
     BrowserModule,

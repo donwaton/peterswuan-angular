@@ -15,3 +15,7 @@ th.mat-header-cell {
 .mat-cell, .mat-footer-cell {
     text-align: center;
 }
+
+.btn-submit{
+    margin-left: 30px;
+}

@@ -20,6 +20,11 @@ export class AntropometricosService {
   constructor(private http: HttpClient) { }
 
   get(id){
-    return this.http.get<Antropometricos>(this.ROOT_URL + '/antropometrico/'+id,httpOptions);
+    return this.http.get<Antropometricos>(this.ROOT_URL + '/antropometrico/' + id, httpOptions);
   }
+
+  put(data){
+    return this.http.put(this.ROOT_URL + '/antropometrico/', data, httpOptions);
+  }
+
 }

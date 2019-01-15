@@ -13,7 +13,7 @@ export class ListaPacientesComponent implements OnInit {
   loading = true;
   listaPacientes: Array<any>;
 
-  constructor(private pacienteService: PacienteService, 
+  constructor(private pacienteService: PacienteService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar) { }
 
@@ -21,32 +21,55 @@ export class ListaPacientesComponent implements OnInit {
     this.obtenerListaPacientes();
   }
 
-  openPaciente(){
+  openPaciente() {
     this.dialog.open(ModalPacienteComponent)
-    .afterClosed()
-    .subscribe(resp=>{
-      if(resp){
-        this.insertarPaciente(resp);
-      }
-    })
+      .afterClosed()
+      .subscribe(resp => {
+        if (resp) {
+          this.insertarPaciente(resp);
+        }
+      })
   }
 
-  insertarPaciente(data){
+  insertarPaciente(data) {
     this.pacienteService.insertPaciente(data)
       .subscribe(resp => {
-        this.snackBar.open('Paciente ingresado correctamente!',"Ok",{duration: 2000});
+        this.snackBar.open('Paciente ingresado correctamente!', "Ok", { duration: 2000 });
         this.obtenerListaPacientes();
       },
-      error => error
-    )
+        error => error
+      )
   }
 
-  obtenerListaPacientes(){
+  obtenerListaPacientes() {
     this.pacienteService.getListaPacientes()
-    .subscribe(resp=>{
-      this.listaPacientes = resp.pacientes;
-      this.loading = false;
-    });
+      .subscribe(resp => {
+        this.listaPacientes = resp.pacientes;
+        this.loading = false;
+      });
+  }
+
+  editarPaciente(id) {
+    this.dialog.open(ModalPacienteComponent, {
+      data: { pacienteId: id }
+    })
+      .afterClosed()
+      .subscribe(resp => {
+        if (resp) {
+          resp['paciente_id'] = id;
+          this.actualizarPaciente(resp);
+        }
+      })
+  }
+
+  actualizarPaciente(data){
+    this.pacienteService.updatePaciente(data)
+      .subscribe(resp => {
+        this.snackBar.open('Paciente actualizado correctamente!', "Ok", { duration: 2000 });
+        this.obtenerListaPacientes();
+      },
+        error => error
+      )
   }
 
 }

@@ -5,7 +5,7 @@
       <p class="title-avatar">{{ paciente.paciente_nombre }}</p>
       <div class="datos-sub2 row">
         <div class="col-sm-5">
-          <b>Ficha Nº:</b> {{ paciente.paciente_id }}
+          <b>Nº:</b> {{ paciente.paciente_id }}
         </div>
         <div class="col-sm-7">
           <b>RUT:</b> {{ paciente.paciente_rut }}
@@ -14,27 +14,29 @@
       <div *ngIf="antropometricos">
         <div class="datos-sub row">
           <div class="col-sm-3 signos-vitales" matTooltip="Peso">
-            <img src="../../../../assets/farma-icons/weight.png" alt="temp" class="farma-icon">
+            <img src="../../../../assets/farma-icons/weight.png" alt="Peso" class="farma-icon">
             <b>{{ antropometricos.pa_peso }}</b>
             <span> Kg</span>
           </div>
           <div class="col-sm-3  signos-vitales" matTooltip="Talla">
-            <img src="../../../../assets/farma-icons/height.png" alt="FR" class="farma-icon">
+            <img src="../../../../assets/farma-icons/height.png" alt="Talla" class="farma-icon">
             <b>{{ antropometricos.pa_talla }}</b>
             <span> cms</span>
           </div>
           <div class="col-sm-3  signos-vitales" matTooltip="Circunferencia Craneo">
-            <img src="../../../../assets/farma-icons/head.png" alt="FC" class="farma-icon">
+            <img src="../../../../assets/farma-icons/head.png" alt="Circunferencia" class="farma-icon">
             <b>{{ antropometricos.pa_circ_craneo }}</b>
             <span> cms</span>
           </div>
           <div class="col-sm-3  signos-vitales" matTooltip="Grupo sanguíneo">
-            <img src="../../../../assets/farma-icons/heart-rate.png" alt="FC" class="farma-icon">
+            <img src="../../../../assets/farma-icons/blood-type.png" alt="Grupo Sanguineo" class="farma-icon">
             <b>{{ paciente.paciente_grupo_sang }}</b>
           </div>
         </div>
       </div>
     </mat-expansion-panel-header>
+
+    <button mat-raised-button color="primary" (click)="registrarAntropo()">Antropometrícos</button>
 
     <mat-tab-group>
       <mat-tab label="Paciente">

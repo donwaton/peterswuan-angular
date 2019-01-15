@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let invasivo of listaInvasivos" (click)="cambioInvasivo()">
+          <tr *ngFor="let invasivo of listaInvasivos" (click)="cambioInvasivo(invasivo.pi_id, invasivo.invasivo_id)">
             <td>{{ invasivo.insumo_nombre }}</td>
             <td>{{ invasivo.pi_posologia }}</td>
             <td *ngIf="invasivo.fecha_inicio">{{ invasivo.fecha_inicio | amDifference: today :'days' : false }} días</td>
