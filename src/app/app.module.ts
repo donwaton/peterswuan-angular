@@ -49,6 +49,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { AdmMedicamentosComponent } from './components/ficha-paciente/adm-medicamentos/adm-medicamentos.component';
 import { InvasivosComponent } from './components/ficha-paciente/invasivos/invasivos.component';
+import { ProtocolosComponent } from './components/ficha-paciente/protocolos/protocolos.component';
 
 import { ModalSignosVitalesComponent } from './components/modals/modal-signos-vitales/modal-signos-vitales.component';
 import { ModalSignosVitales24hComponent } from './components/modals/modal-signos-vitales24h/modal-signos-vitales24h.component';
@@ -74,6 +75,7 @@ import { AlertasService } from './services/alertas.service';
 import { AntropometricosService } from './services/antropometricos.service';
 import { InsumosService } from './services/insumos.service';
 import { MedicamentosService } from './services/medicamentos.service';
+import { ProtocolosService } from './services/protocolos.service';
 
 const routes: Routes = [
   { path: 'ficha-paciente/:id', component: FichaPacienteComponent, canActivate: [AuthGuard] },
@@ -111,7 +113,8 @@ const routes: Routes = [
     ModalProtocolosComponent,
     ModalInvasivosComponent,
     ModalCambioInvasivoComponent,
-    ModalAntropometricosComponent
+    ModalAntropometricosComponent,
+    ProtocolosComponent
   ],
   entryComponents: [
     ModalAdmMedComponent,
@@ -174,7 +177,8 @@ const routes: Routes = [
     PacienteService,
     SignosVitalesService,
     UsuarioService,
-    AuthGuard
+    AuthGuard,
+    ProtocolosService
   ],
   bootstrap: [AppComponent]
 })

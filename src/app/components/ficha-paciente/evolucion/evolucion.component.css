@@ -5,3 +5,11 @@
 .prof-evolucion{
     text-align: left;
 }
+
+.title{
+    font-size: 15px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 4px;
+}

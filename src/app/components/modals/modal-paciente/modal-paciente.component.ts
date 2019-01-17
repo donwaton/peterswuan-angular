@@ -141,7 +141,6 @@ export class ModalPacienteComponent implements OnInit {
       )
     )
       .subscribe()
-
   }
 
   getUrl() {
@@ -150,7 +149,6 @@ export class ModalPacienteComponent implements OnInit {
       .subscribe(resp => {
         this.formPaciente.patchValue({ paciente_url: resp })
       })
-
   }
 
 }

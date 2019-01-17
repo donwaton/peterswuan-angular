@@ -80,7 +80,6 @@ export class InvasivosComponent implements OnInit {
           }
           resp['pi_id'] = parseInt(pi_id);
           resp['user_id'] = parseInt(localStorage.getItem('user_id'));
-          console.log(resp);
           this.insertInvasivo(resp);
         }
       });
@@ -89,10 +88,9 @@ export class InvasivosComponent implements OnInit {
   insertInvasivo(data) {
     this.invasivosService.put(data)
       .subscribe(resp=>{
-        console.log(resp);
         this.snackBar.open('Cambio de invasivo ingresado correctamente!', "Ok", { duration: 2000 });
         this.getInvasivos(this.pacienteId);
-      }, error => console.log(error)
+      }, error => error
       )
   }
 

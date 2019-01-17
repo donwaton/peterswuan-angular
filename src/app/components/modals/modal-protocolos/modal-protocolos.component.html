@@ -1,3 +1,16 @@
-<p>
-  modal-protocolos works!
-</p>
+<div matDialogTitle>Ingresar Protocolo</div>
+<div class="container">
+  <form [formGroup]="formProto">
+    <mat-form-field class="p100">
+      <input matInput placeholder="Nombre protocolo" formControlName="proto_name" required>
+    </mat-form-field>
+    <br>
+    <div>
+      <input type="file" (change)="uploadFile($event)" style="margin-left:30px;" accept=".docx, .doc, .pdf" required>
+      <div>Cargado: {{ uploadPercent | async }}%</div>
+    </div>
+    <br>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formProto.value" [disabled]="(downloadStatus || !formProto.valid)" class="btn-submit">Ingresar</button>
+  </form>
+</div>

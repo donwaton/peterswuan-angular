@@ -18,5 +18,16 @@
 
 .subtitle{
     font-size: 13px;
-    color: #575757;
+    margin-left: 25px;
+    font-weight: 400;
+    color: #275587;
+    cursor: pointer;
+}
+
+.title{
+    font-size: 15px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 4px;
 }
