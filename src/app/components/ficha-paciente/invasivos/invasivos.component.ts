@@ -16,6 +16,7 @@ import { ModalCambioInvasivoComponent } from '../../modals/modal-cambio-invasivo
 export class InvasivosComponent implements OnInit {
   pacienteId: string;
   listaInvasivos: any;
+  loading: boolean = true;
 
   constructor(
     private dialog: MatDialog,
@@ -31,6 +32,7 @@ export class InvasivosComponent implements OnInit {
       .subscribe(params => {
         this.pacienteId = params.get('id');
         this.getInvasivos(this.pacienteId);
+        this.loading = false;
       });
   }
 

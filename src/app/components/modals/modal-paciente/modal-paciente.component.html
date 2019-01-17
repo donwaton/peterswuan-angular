@@ -5,6 +5,12 @@
     <form [formGroup]="formPaciente">
       <ng-template matStepLabel>Datos del Paciente</ng-template>
       <div class="row">
+        <div class="col-sm-12" *ngIf="paciente">
+          <img [src]="downloadURL | async" class="img-avatar" *ngIf="downloadURL">
+          <input type="file" (change)="uploadFile($event)" style="margin-left:30px;" accept=".png, .jpg, .jpeg">
+        </div>
+      </div>
+      <div class="row">        
         <div class="col-sm-4">
           <mat-form-field class="p100">
             <input matInput placeholder="Rut" formControlName="paciente_rut">

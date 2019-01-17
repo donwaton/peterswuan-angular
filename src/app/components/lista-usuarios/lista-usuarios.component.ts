@@ -19,9 +19,9 @@ export class ListaUsuariosComponent implements OnInit {
     private snackBar: MatSnackBar,
     private usuarioService: UsuarioService
   ) { }
-
+  
   ngOnInit() {
-    this.getListaUsuario()
+    this.getListaUsuario();
   }
 
   newUsuario(){

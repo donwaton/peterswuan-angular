@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-4 mt-2" *ngFor="let paciente of listaPacientes">
       <mat-card class="card-patient">
-        <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño" class="img-avatar">
+        <img class="img-avatar" [src]="paciente.paciente_url" alt="niño" class="img-avatar">
         <div class="title-avatar">{{ paciente.paciente_nombre }}</div>
         <div class="datos-sub">
             <img routerLink="/ficha-paciente/{{paciente.paciente_id}}" src="../../../../assets/farma-icons/file.png" alt="Ficha" class="farma-icon" matTooltip="Ficha del paciente">

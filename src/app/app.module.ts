@@ -6,6 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MomentModule } from 'ngx-moment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,6 +33,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -149,8 +154,12 @@ const routes: Routes = [
     MatDatepickerModule,
     MatMomentDateModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
     MomentModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [

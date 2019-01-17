@@ -1,7 +1,7 @@
 <mat-accordion *ngIf="paciente">
   <mat-expansion-panel class="mt-2">
     <mat-expansion-panel-header collapsedHeight="120px" expandedHeight="120px">
-      <img class="img-avatar" src="../../../assets/nino.jpg" alt="niño">
+      <img class="img-avatar" [src]="paciente.paciente_url" alt="niño">
       <p class="title-avatar">{{ paciente.paciente_nombre }}</p>
       <div class="datos-sub2 row">
         <div class="col-sm-5">
